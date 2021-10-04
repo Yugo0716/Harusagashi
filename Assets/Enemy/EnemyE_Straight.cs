@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingBlock : MonoBehaviour
+public class EnemyE_Straight : MonoBehaviour
 {
     public float moveX = 0.0f;
     public float moveY = 0.0f;
     public float times = 0.0f;
     public float weight = 0.0f;
-    public bool isMoveWhenOn = false;
 
     public bool isCanMove = true;
     float perdx;
@@ -24,8 +23,6 @@ public class MovingBlock : MonoBehaviour
         float timestep = Time.fixedDeltaTime;
         perdx = moveX / (1.0f / timestep * times);
         perdy = moveY / (1.0f / timestep * times);
-
-        if (isMoveWhenOn) isCanMove = false;
     }
 
     // Update is called once per frame
@@ -60,7 +57,7 @@ public class MovingBlock : MonoBehaviour
                 if (isReverse) transform.position = defPos;
                 isReverse = !isReverse;
                 isCanMove = false;
-                if (isMoveWhenOn == false) Invoke("Move", weight);
+                Invoke("Move", weight);
             }
         }
     }
@@ -73,22 +70,5 @@ public class MovingBlock : MonoBehaviour
     public void Stop()
     {
         isCanMove = false;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            collision.transform.SetParent(transform);
-            if (isMoveWhenOn) isCanMove = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            collision.transform.SetParent(null);
-        }
     }
 }

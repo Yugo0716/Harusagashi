@@ -20,14 +20,25 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "Mirror")
+        if (collision.gameObject.tag != "Mirror90")
         {
             Destroy(gameObject);
         }
-        else if(collision.gameObject.tag == "Mirror")
+        else if(collision.gameObject.tag == "Mirror90")
         {
             float z = transform.localRotation.z;
             z += 90;
+            transform.localRotation = Quaternion.Euler(0, 0, z);
+        }
+
+        if (collision.gameObject.tag != "Mirror-90")
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Mirror-90")
+        {
+            float z = transform.localRotation.z;
+            z -= -90;
             transform.localRotation = Quaternion.Euler(0, 0, z);
         }
     }
