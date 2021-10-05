@@ -21,17 +21,20 @@ public class EnemyDShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyBD enemyd = enemyD.GetComponent<EnemyBD>();
+        EnemyBDG enemyd = enemyD.GetComponent<EnemyBDG>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        GameObject bulletObj = GameObject.Find(bulletPrefab.name);
-        float dist = Vector2.Distance(enemyD.transform.position, player.transform.position);
-        if (enemyd.isActive)
+        if (player != null)
         {
-            if (dist < reactionDistance)
+            GameObject bulletObj = GameObject.Find(bulletPrefab.name);
+            float dist = Vector2.Distance(enemyD.transform.position, player.transform.position);
+            if (enemyd.isActive)
             {
-                if (bulletObj == null)
+                if (dist < reactionDistance)
                 {
-                    Invoke("Attack", shootDelay);
+                    if (bulletObj == null)
+                    {
+                        Invoke("Attack", shootDelay);
+                    }
                 }
             }
         }
