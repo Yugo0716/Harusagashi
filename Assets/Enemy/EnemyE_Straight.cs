@@ -31,7 +31,11 @@ public class EnemyE_Straight : MonoBehaviour
         
     }
 
+<<<<<<< HEAD
     private void FixedUpdate()
+=======
+    public void FixedUpdate()
+>>>>>>> yugo-branch
     {
         if (isCanMove)
         {
