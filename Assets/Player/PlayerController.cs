@@ -26,12 +26,26 @@ public class PlayerController : MonoBehaviour
     public static int hp = 5;  //プレイヤーのHP
     public static string gameState;
     bool inDamage = false;
+    //アニメーション
+    Animator animator;
+    public string stopAnime = "PlayerStop";
+    public string walkAnime = "PlayerWalk";
+    public string jumpAnime = "PlayerJump";
+    public string flyAnime = "PlayerFly";
+    public string damageAnime = "PlayerDamage";
+    public string deadAnime = "PlayerDead";
+    string nowAnime = "";
+    string oldAnime = "";
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        
         rbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        //アニメーション
+        nowAnime = stopAnime;
+        oldAnime = stopAnime;
         //gameStateをプレイ中にする
         gameState = "playing";
     }
@@ -141,6 +155,14 @@ public class PlayerController : MonoBehaviour
                 if (onGround)
                 {
                     rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
+                    if(axisH == 0)
+                    {
+                        nowAnime = stopAnime;
+                    }
+                    else
+                    {
+                        nowAnime = walkAnime;
+                    }
                 }
 
                 //ジャンプ
@@ -149,6 +171,8 @@ public class PlayerController : MonoBehaviour
                     Vector2 jumpPw = new Vector2(0, jump);
                     rbody.AddForce(jumpPw, ForceMode2D.Impulse);
                     goJump = false;
+
+                    nowAnime = jumpAnime;
                 }
 
                 //空中移動
@@ -177,6 +201,8 @@ public class PlayerController : MonoBehaviour
                         {
                             rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
                         }
+
+                        nowAnime = jumpAnime;
                     }
 
                 }
@@ -189,8 +215,16 @@ public class PlayerController : MonoBehaviour
                 rbody.gravityScale = 0.0f;
                 //速度更新
                 rbody.velocity = new Vector2(axisH, axisV) * flySpeed;
+
+                nowAnime = flyAnime;
                 #endregion
             }
+        }
+
+        if (nowAnime != oldAnime)
+        {
+            oldAnime = nowAnime;
+            animator.Play(nowAnime);
         }
     }
 
@@ -259,8 +293,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator CanControllCoroutine()
     {
         canControll = false;
+        nowAnime = damageAnime;
         yield return new WaitForSeconds(0.7f);
         canControll = true;
+        nowAnime = oldAnime;
     }
 
     void DamageEnd()
@@ -277,6 +313,7 @@ public class PlayerController : MonoBehaviour
         rbody.velocity = new Vector2(0, 0);
         rbody.gravityScale = 1;
         rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+        animator.Play(deadAnime);
         Destroy(gameObject, 1.0f);
     }
 }

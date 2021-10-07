@@ -482,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2860844779307751353, guid: 5e49ffb56a62f0344acb37a8fe4dcd07, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2860844779307751353, guid: 5e49ffb56a62f0344acb37a8fe4dcd07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2066,7 +2066,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1396588126661610160, guid: 1cf40157f27674540b3f312b6c1de123, type: 3}
       propertyPath: sceneName
-      value: TestScene
+      value: TestScene3
       objectReference: {fileID: 0}
     - target: {fileID: 1396588126661610160, guid: 1cf40157f27674540b3f312b6c1de123, type: 3}
       propertyPath: doorNumber
@@ -2078,7 +2078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5854632894028205529, guid: 1cf40157f27674540b3f312b6c1de123, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5854632894028205529, guid: 1cf40157f27674540b3f312b6c1de123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2139,7 +2139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5854632894028205529, guid: 1cf40157f27674540b3f312b6c1de123, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5854632894028205529, guid: 1cf40157f27674540b3f312b6c1de123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2804,7 +2804,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3201457012584673936, guid: 8705f9ffe9b74d04f89f8ccb7f06a17c, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3201457012584673936, guid: 8705f9ffe9b74d04f89f8ccb7f06a17c, type: 3}
       propertyPath: m_LocalScale.x
@@ -3002,7 +3002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2860844779307751353, guid: 5e49ffb56a62f0344acb37a8fe4dcd07, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2860844779307751353, guid: 5e49ffb56a62f0344acb37a8fe4dcd07, type: 3}
       propertyPath: m_LocalScale.x
@@ -3985,7 +3985,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1396588126661610160, guid: 1cf40157f27674540b3f312b6c1de123, type: 3}
       propertyPath: sceneName
-      value: TestScene
+      value: TestScene2
       objectReference: {fileID: 0}
     - target: {fileID: 1396588126661610160, guid: 1cf40157f27674540b3f312b6c1de123, type: 3}
       propertyPath: doorNumber
@@ -3997,7 +3997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5854632894028205529, guid: 1cf40157f27674540b3f312b6c1de123, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5854632894028205529, guid: 1cf40157f27674540b3f312b6c1de123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4334,7 +4334,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3201457012584673936, guid: 8705f9ffe9b74d04f89f8ccb7f06a17c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3201457012584673936, guid: 8705f9ffe9b74d04f89f8ccb7f06a17c, type: 3}
       propertyPath: m_LocalScale.x
@@ -4407,7 +4407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6299050106456348898, guid: f18060a5208d3c24a876f011929b139e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6299050106456348898, guid: f18060a5208d3c24a876f011929b139e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4463,11 +4463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6299050106456348910, guid: f18060a5208d3c24a876f011929b139e, type: 3}
       propertyPath: speed
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6299050106456348910, guid: f18060a5208d3c24a876f011929b139e, type: 3}
       propertyPath: flySpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6299050106456348910, guid: f18060a5208d3c24a876f011929b139e, type: 3}
       propertyPath: colliderA

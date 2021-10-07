@@ -166,17 +166,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6995ebed6eb35254997f01f18302097d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canControll: 1
   axisH: 0
-  speed: 7
-  jump: 20
+  speed: 10
+  jump: 24
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   onGround: 0
+  canSelectFly: 1
   canFly: 0
-  flySpeed: 3
+  flySpeed: 5
   axisV: 0
   angleZ: -90
+  stopAnime: PlayerStop
+  walkAnime: PlayerWalk
+  jumpAnime: PlayerJump
+  flyAnime: PlayerFly
+  damageAnime: PlayerDamage
+  deadAnime: PlayerDead
 --- !u!70 &6299050106456348911
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

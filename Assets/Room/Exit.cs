@@ -26,15 +26,12 @@ public class Exit : MonoBehaviour
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             PlayerController playerCnt = player.GetComponent<PlayerController>();
-            if (playerCnt.onGround == true)
+            if (playerCnt.onGround == true && open)
             {
-                if (open)
-                {
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                     {
                         RoomManager.ChangeScene(sceneName, doorNumber);
                     }
-                }
             }
         }
     }
