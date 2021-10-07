@@ -19,7 +19,7 @@ public class ItemKeeper : MonoBehaviour
     {
         if(hasNeeds == 9)
         {
-            SceneManager.LoadScene("TestScene2");
+            SceneManager.LoadScene("TestScene3");
         }
     }
 
