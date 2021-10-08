@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8302799636819719529, guid: b71e50240f464c648893aa8d76e9aff3, type: 3}
+  - {fileID: 3759783040981137905, guid: c9c70e73d1e0137419fa25a930de9157, type: 3}
+  - {fileID: 4318147263916877718, guid: 17d3eda3a18af50438c39230b1df363f, type: 3}
+  - {fileID: 7375979796545210495, guid: 239c8cebc467be44a821527bd69b4a96, type: 3}
+  - {fileID: 6138112329950538631, guid: 6cec4e4629be48e4b93e0674148868dd, type: 3}
+  - {fileID: 7356833789925044952, guid: 4344d7b79f5038e4c86f0bdd19322630, type: 3}
+  - {fileID: 6646347237196844342, guid: 6ee435c10ef3fac4cbe03d414a08ac9b, type: 3}
+  - {fileID: 7614510537160490456, guid: a6516b057dff75640b386be4e12ec6ff, type: 3}
+  - {fileID: 3228981421538452000, guid: 252cf3d3b0ee7e145bea91eada986284, type: 3}

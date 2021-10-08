@@ -41,6 +41,9 @@ public class ItemData : MonoBehaviour
                 if (PlayerController.hp < 5)
                 {
                     PlayerController.hp++;
+                    //HP更新
+                    PlayerPrefs.SetInt("PlayerHP", PlayerController.hp);
+
                     gameObject.GetComponent<CircleCollider2D>().enabled = false;
                     Destroy(gameObject);
                 }
@@ -56,13 +59,15 @@ public class ItemData : MonoBehaviour
                 NeedsKeeper needsKeeper = needskeeper.GetComponent<NeedsKeeper>();
 
                 ItemKeeper.hasNeeds += 1;
+                //PlayerPrefs.SetInt("Needs", ItemKeeper.hasNeeds);
 
                 needsKeeper.NeedsControll(needNumber);  //画面上側にとったアイテムを表示
 
                 gameObject.GetComponent<CircleCollider2D>().enabled = false;
                 Destroy(gameObject);
-
             }
+            //配置Idの記録
+            SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
         }
     }
 }
