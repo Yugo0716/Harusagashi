@@ -723,6 +723,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2207136085000488371, guid: 6f37923e9f50fdb4583bbb93caa1154e, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 198094295}
     - target: {fileID: 2207136085000488372, guid: 6f37923e9f50fdb4583bbb93caa1154e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
