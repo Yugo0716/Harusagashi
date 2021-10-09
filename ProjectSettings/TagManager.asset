@@ -12,8 +12,15 @@ TagManager:
   - Door
   - Bullet
   - Exit
+<<<<<<< HEAD
   - Mirror90
   - Mirror-90
+=======
+  - Ground
+  - Mirror
+  - InputText
+  - ItemImage
+>>>>>>> yugo-branch
   layers:
   - Default
   - TransparentFX

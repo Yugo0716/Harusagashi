@@ -8,6 +8,8 @@ public class Door : MonoBehaviour
     public Sprite openImage;
     public Sprite closeImage;
 
+    public int arrangeId = 0;
+
     // Start is called before the first frame update
     void Start()
     {
