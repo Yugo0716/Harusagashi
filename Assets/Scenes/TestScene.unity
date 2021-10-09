@@ -1625,7 +1625,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 0.5596232, b: 0, a: 1}
   m_FlipX: 0
@@ -1661,6 +1661,10 @@ PrefabInstance:
     - target: {fileID: 2860844779307751351, guid: 5e49ffb56a62f0344acb37a8fe4dcd07, type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860844779307751352, guid: 5e49ffb56a62f0344acb37a8fe4dcd07, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2860844779307751353, guid: 5e49ffb56a62f0344acb37a8fe4dcd07, type: 3}
       propertyPath: m_RootOrder
@@ -2174,6 +2178,26 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ItemImage
       objectReference: {fileID: 0}
+    - target: {fileID: 2207136085000488368, guid: 6f37923e9f50fdb4583bbb93caa1154e, type: 3}
+      propertyPath: life1Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 7e5eb1a5e4f1e6a468191ad667ebd12e, type: 3}
+    - target: {fileID: 2207136085000488368, guid: 6f37923e9f50fdb4583bbb93caa1154e, type: 3}
+      propertyPath: life2Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 2ebb193c549b3a247bd95f2f883a7b42, type: 3}
+    - target: {fileID: 2207136085000488368, guid: 6f37923e9f50fdb4583bbb93caa1154e, type: 3}
+      propertyPath: life3Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 098c73f8cf721cc49ac229d5123535c7, type: 3}
+    - target: {fileID: 2207136085000488368, guid: 6f37923e9f50fdb4583bbb93caa1154e, type: 3}
+      propertyPath: life4Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 6255cc4bcc17c35478a90bf221998a9b, type: 3}
+    - target: {fileID: 2207136085000488368, guid: 6f37923e9f50fdb4583bbb93caa1154e, type: 3}
+      propertyPath: life5Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 9a5ad331dff83f5499436fa74fc1c47f, type: 3}
     - target: {fileID: 2207136085000488371, guid: 6f37923e9f50fdb4583bbb93caa1154e, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2266,6 +2290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2207136085055403588, guid: 6f37923e9f50fdb4583bbb93caa1154e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9a5ad331dff83f5499436fa74fc1c47f, type: 3}
     - target: {fileID: 2207136085154190543, guid: 6f37923e9f50fdb4583bbb93caa1154e, type: 3}
       propertyPath: m_TagString
       value: ItemImage
@@ -2365,6 +2393,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Need2
       objectReference: {fileID: 0}
+    - target: {fileID: 3759783040981137906, guid: c9c70e73d1e0137419fa25a930de9157, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ec2216caced79749825fc3622a1afc6, type: 3}
     - target: {fileID: 3759783040981137909, guid: c9c70e73d1e0137419fa25a930de9157, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -2462,6 +2494,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4318147263916877717, guid: 17d3eda3a18af50438c39230b1df363f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e45dcb5b76df2394584a8fd31f0cb8b9, type: 3}
     - target: {fileID: 4318147263916877718, guid: 17d3eda3a18af50438c39230b1df363f, type: 3}
       propertyPath: m_Name
       value: Need3
@@ -2580,6 +2616,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6138112329950538628, guid: 6cec4e4629be48e4b93e0674148868dd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6626ebe8902ffa04bb591b680bf4b009, type: 3}
     - target: {fileID: 6138112329950538631, guid: 6cec4e4629be48e4b93e0674148868dd, type: 3}
       propertyPath: m_Name
       value: Need5
@@ -2597,6 +2637,10 @@ PrefabInstance:
       propertyPath: shootDelay
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 6299050106230153420, guid: f18060a5208d3c24a876f011929b139e, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 7303680758588753163, guid: 2f1ad9b73b37d3049a2a1abfd48c8b9b, type: 3}
     - target: {fileID: 6299050106456348898, guid: f18060a5208d3c24a876f011929b139e, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2910,6 +2954,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Need1
       objectReference: {fileID: 0}
+    - target: {fileID: 8302799636819719530, guid: b71e50240f464c648893aa8d76e9aff3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d1bee842abe7b1843972066982016cc4, type: 3}
     - target: {fileID: 8302799636819719541, guid: b71e50240f464c648893aa8d76e9aff3, type: 3}
       propertyPath: m_RootOrder
       value: 17

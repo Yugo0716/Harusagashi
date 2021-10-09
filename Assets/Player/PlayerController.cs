@@ -277,7 +277,7 @@ public class PlayerController : MonoBehaviour
                 rbody.velocity = new Vector2(0, 0);
                 //敵と反対方向にヒットバック
                 Vector3 v = (transform.position - enemy.transform.position).normalized;
-                rbody.AddForce(new Vector2(v.x * 2, v.y * 2), ForceMode2D.Impulse);
+                rbody.AddForce(new Vector2(v.x * 4, v.y * 4), ForceMode2D.Impulse);
                 inDamage = true;
                 //敵をすり抜けるレイヤーにする
                 gameObject.layer = LayerMask.NameToLayer("Player_Damage");

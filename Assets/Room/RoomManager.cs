@@ -46,6 +46,16 @@ public class RoomManager : MonoBehaviour
         PlayerPrefs.SetString("LastSceme", scenename);  //シーン名を保存
         PlayerPrefs.SetInt("LastDoor", doornum);  //ドア番号を保存
         ItemKeeper.SaveItem();  //アイテムを保存
+        //以下for内はシーン変更時にアイテム画像が保存されるようにするためのもの
+        for( int i = 0; i < NeedsKeeper.itemNumber.Length; i++)
+        {
+            if(NeedsKeeper.figure[i] == 1)
+            {
+                string iChara = i.ToString();
+                PlayerPrefs.SetInt("Item" + iChara, 1);
+            }
+
+        }
 
         SceneManager.LoadScene(scenename);
     }
