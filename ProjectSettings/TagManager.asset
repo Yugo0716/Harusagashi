@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Dead
+  - Damage
+  - Heal
+  - Item
+  - Switch
+  - Door
+  - Bullet
+  - Exit
+  - Ground
+  - InputText
+  - ItemImage
+  - Mirror+90
+  - Mirror-90
   layers:
   - Default
   - TransparentFX
@@ -13,16 +26,16 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Bullet
+  - Player
+  - Player_Damage
+  - Enemy
+  - Enemy_Dead
+  - FakeWall
+  - EnemyBullet
+  - EnemyBulletDX
+  - Mirror
   - 
   - 
   - 
