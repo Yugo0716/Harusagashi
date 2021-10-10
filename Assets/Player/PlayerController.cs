@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         //gameState‚ğƒvƒŒƒC’†‚É‚·‚é
         gameState = "playing";
         //HP“Ç‚İ‚İ
-        //hp = PlayerPrefs.GetInt("PlayerHP");
+        hp = PlayerPrefs.GetInt("PlayerHP");
     }
 
     // Update is called once per frame
