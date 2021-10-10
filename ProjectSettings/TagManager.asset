@@ -3,24 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Dead
-  - Damage
-  - Heal
-  - Item
-  - Switch
-  - Door
-  - Bullet
-  - Exit
-<<<<<<< HEAD
-  - Mirror90
-  - Mirror-90
-=======
-  - Ground
-  - Mirror
-  - InputText
-  - ItemImage
->>>>>>> yugo-branch
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -30,16 +13,16 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
-  - Bullet
-  - Player
-  - Player_Damage
-  - Enemy
-  - Enemy_Dead
   - 
-  - EnemyBullet
-  - EnemyBulletDX
-  - Mirror
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
