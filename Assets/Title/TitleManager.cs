@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
-{
+{//
     public GameObject startButton;
     public GameObject continueButton;
     public string firstSceneName;

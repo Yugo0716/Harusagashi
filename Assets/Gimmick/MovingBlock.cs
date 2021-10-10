@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingBlock : MonoBehaviour
-{
+{//
     public float moveX = 0.0f;
     public float moveY = 0.0f;
     public float times = 0.0f;

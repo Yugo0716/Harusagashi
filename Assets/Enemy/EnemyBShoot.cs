@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBShoot : MonoBehaviour
-{
+{//
     public float shootSpeed = 12.0f;  //’e‚Ì‘¬“x
     public float shootDelay = 5.0f;  //”­ŽËŠÔŠu
     public float reactionDistance = 10.0f;

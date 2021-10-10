@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class SaveData
-{
+{//
     public int arrangeId = 0;
     public string objTag = "";
 }

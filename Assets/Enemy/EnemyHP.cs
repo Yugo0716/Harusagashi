@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
-{
+{//
     public float hp = 3;
     Rigidbody2D rbody;
 

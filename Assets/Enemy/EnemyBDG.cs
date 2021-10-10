@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBDG : MonoBehaviour
-{
+{//
     public float reactionDistance = 20.0f;
     Rigidbody2D rbody;
 

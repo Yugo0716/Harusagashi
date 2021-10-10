@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class InputText : MonoBehaviour
-{
+{//
     public InputField inputField;
     public GameObject exit;
     public GameObject fieldObject;

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class NeedsKeeper : MonoBehaviour
-{
+{//
     public static string number;
     public GameObject[] needs = new GameObject[9];  //ƒAƒCƒeƒ€‰æ‘œ
 

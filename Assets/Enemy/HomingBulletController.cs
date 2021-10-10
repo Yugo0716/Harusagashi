@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HomingBulletController : MonoBehaviour
-{
+{//
     public float bulletSpeed = 2.0f;
     public float limitSpeed = 3.0f;
     public float deleteTime = 8;  //íœŠÔ

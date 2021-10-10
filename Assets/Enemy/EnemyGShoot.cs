@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyGShoot : MonoBehaviour
-{
+{//
     public float shootSpeedLong = 12.0f;  //’e‚Ì‘¬“x
     public float shootSpeedNormal = 12.0f;
     public float shootSpeedShort = 12.0f;

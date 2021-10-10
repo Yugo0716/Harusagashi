@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Exit : MonoBehaviour
-{
+{//
     public string sceneName = "";  //移動先のシーン
     public int doorNumber = 0;  //ドア番号
     public bool open = true;
