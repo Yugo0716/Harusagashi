@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Icicle : MonoBehaviour
-{
+{//
     [SerializeField]
     public bool isDelete = false;  //—‰ºŒã‚ÉÁ‚·ƒtƒ‰ƒO
 

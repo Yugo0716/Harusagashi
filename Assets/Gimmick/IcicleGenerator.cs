@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class IcicleGenerator : MonoBehaviour
-{
+{//
     [SerializeField] GameObject iciclePrefab;
     float span = 4.0f;
     public float delta = 0;

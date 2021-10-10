@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
-{
+{//
     int hp = 0;  //ƒvƒŒƒCƒ„[‚ÌHP
     [SerializeField]
     public GameObject hpImage;  //HP‰æ‘œ

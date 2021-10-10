@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
-{
+{//
     public float deleteTime = 2;  //íœŠÔ
 
     // Start is called before the first frame update

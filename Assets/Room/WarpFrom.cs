@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WarpFrom : MonoBehaviour
-{
+{//
     public GameObject warpTo;
     public bool open = true;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SaveDataManager : MonoBehaviour
-{
+{//
     public static SaveDataList arrangeDataList;
 
     // Start is called before the first frame update

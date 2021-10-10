@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyF : MonoBehaviour
-{
+{//
     Rigidbody2D rbody;
     public float jump = 9.0f;
     public float speed = 6.0f;

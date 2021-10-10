@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyE_Circle : MonoBehaviour
-{
+{//
     public float speed = 0f;
     public float radius = 0f;
 <<<<<<< HEAD

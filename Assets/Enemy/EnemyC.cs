@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyC : MonoBehaviour
-{
+{//
     public float bulletSpeed = 2.0f;
     public float limitSpeed = 3.0f;
     public float reactionDistance = 8.0f;

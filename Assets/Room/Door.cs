@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
-{
+{//
     public GameObject exit;
     public Sprite openImage;
     public Sprite closeImage;
