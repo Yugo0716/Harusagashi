@@ -13,9 +13,10 @@ TagManager:
   - Bullet
   - Exit
   - Ground
-  - Mirror
   - InputText
   - ItemImage
+  - Mirror+90
+  - Mirror-90
   layers:
   - Default
   - TransparentFX
