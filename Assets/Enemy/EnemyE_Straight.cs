@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyE_Straight : MonoBehaviour
-{
+{//
     public float moveX = 0.0f;
     public float moveY = 0.0f;
     public float times = 0.0f;
@@ -31,7 +31,7 @@ public class EnemyE_Straight : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         if (isCanMove)
         {

@@ -12,7 +12,10 @@ TagManager:
   - Door
   - Bullet
   - Exit
-  - Mirror90
+  - Ground
+  - InputText
+  - ItemImage
+  - Mirror+90
   - Mirror-90
   layers:
   - Default
@@ -29,7 +32,7 @@ TagManager:
   - Player_Damage
   - Enemy
   - Enemy_Dead
-  - 
+  - FakeWall
   - EnemyBullet
   - EnemyBulletDX
   - Mirror

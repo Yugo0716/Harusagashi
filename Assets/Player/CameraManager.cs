@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
-{
+{//
     public float leftLimit = 0.0f;
     public float rightLimit = 0.0f;
     public float topLimit = 0.0f;

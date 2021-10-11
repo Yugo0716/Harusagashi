@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SwitchAction : MonoBehaviour
-{
+{//
     public GameObject target;
     public Sprite imageOn;
     public Sprite imageOff;

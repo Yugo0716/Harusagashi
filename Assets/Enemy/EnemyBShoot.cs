@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBShoot : MonoBehaviour
-{
+{//
     public float shootSpeed = 12.0f;  //’e‚Ì‘¬“x
     public float shootDelay = 5.0f;  //”­ŽËŠÔŠu
     public float reactionDistance = 10.0f;
@@ -22,13 +22,16 @@ public class EnemyBShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyBD enemyb = enemyB.GetComponent<EnemyBD>();
+        EnemyBDG enemyb = enemyB.GetComponent<EnemyBDG>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (enemyb.isActive)
+        if (player != null)
         {
-            float dist = Vector2.Distance(enemyb.transform.position, player.transform.position);
-            if(dist < reactionDistance)
-            Attack();
+            if (enemyb.isActive)
+            {
+                float dist = Vector2.Distance(enemyb.transform.position, player.transform.position);
+                if (dist < reactionDistance)
+                    Attack();
+            }
         }
     }
 

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootSpeed: 10
-  shootDelay: 1.5
+  shootDelay: 2
   reactionDistance: 25
   enemyB: {fileID: 0}
   bulletPrefab: {fileID: 4209116059957444689, guid: c03e34b5cb850db448464702bc33a7dd, type: 3}

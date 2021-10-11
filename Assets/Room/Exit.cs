@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Exit : MonoBehaviour
-{
+{//
     public string sceneName = "";  //移動先のシーン
     public int doorNumber = 0;  //ドア番号
     public bool open = true;
+
+    public int arrangeId = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +28,12 @@ public class Exit : MonoBehaviour
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             PlayerController playerCnt = player.GetComponent<PlayerController>();
-            if (playerCnt.onGround == true)
+            if (playerCnt.onGround == true && open)
             {
-                if (open)
-                {
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                     {
                         RoomManager.ChangeScene(sceneName, doorNumber);
                     }
-                }
             }
         }
     }
@@ -42,6 +41,8 @@ public class Exit : MonoBehaviour
     public void Open()
     {
         open = true;
+        //配置Idの記録 自信ない
+        SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
     }
 
 }

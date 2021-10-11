@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NotUsing : MonoBehaviour
-{
+{//
     public float speed = 5.0f;
     public float reactionDistance = 8.0f;
     float axisH;

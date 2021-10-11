@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class InputText : MonoBehaviour
-{
+{//
     public InputField inputField;
     public GameObject exit;
     public GameObject fieldObject;
+
+    public int arrangeId = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +50,7 @@ public class InputText : MonoBehaviour
         {
             Exit exitCnt = exit.GetComponent<Exit>();
             exitCnt.Open();
+            
         }
         inputField.text = "";
         fieldObject.SetActive(false);

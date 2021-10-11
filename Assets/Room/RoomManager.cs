@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviour
-{
+{//
     public static int doorNumber = 0;
 
     // Start is called before the first frame update
@@ -38,6 +38,25 @@ public class RoomManager : MonoBehaviour
     public static void ChangeScene(string scenename, int doornum)
     {
         doorNumber = doornum;  //ドア番号をstatic変数に保存
+        string nowScene = PlayerPrefs.GetString("LastScene");
+        if(nowScene != "")
+        {
+            SaveDataManager.SaveArrangeData(nowScene);  //配置データを保存
+        }
+        PlayerPrefs.SetString("LastSceme", scenename);  //シーン名を保存
+        PlayerPrefs.SetInt("LastDoor", doornum);  //ドア番号を保存
+        ItemKeeper.SaveItem();  //アイテムを保存
+        //以下for内はシーン変更時にアイテム画像が保存されるようにするためのもの
+        for( int i = 0; i < NeedsKeeper.itemNumber.Length; i++)
+        {
+            if(NeedsKeeper.figure[i] == 1)
+            {
+                string iChara = i.ToString();
+                PlayerPrefs.SetInt("Item" + iChara, 1);
+            }
+
+        }
+
         SceneManager.LoadScene(scenename);
     }
 }

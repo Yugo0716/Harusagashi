@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
-{
+{//
     int hp = 0;  //ÉvÉåÉCÉÑÅ[ÇÃHP
     [SerializeField]
     public GameObject hpImage;  //HPâÊëú
@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     public Sprite life3Image;
     public Sprite life2Image;
     public Sprite life1Image;
-    public Sprite life0Image;
+    //public Sprite life0Image;
     public GameObject mainImage;
     public GameObject continueButton;
     public GameObject endButton;
@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
                     hp = PlayerController.hp;
                     if (hp <= 0)
                     {
-                        hpImage.GetComponent<Image>().sprite = life0Image;
+                        Destroy(hpImage);
                         panel.SetActive(true);
                         mainImage.SetActive(true);
                         mainImage.GetComponent<Image>().sprite = gameOverSpr;

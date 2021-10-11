@@ -3,73 +3,71 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ItemType
-{
+{//
     life,
     key,
     need,
-    needA,
-    needB,
-    needC,
-    needD,
 }
 
 public class ItemData : MonoBehaviour
 {
     public ItemType type;
     public int count = 1;  //アイテム数
+    public int needNumber;
+    GameObject needskeeper;  //ヒエラルキーにあるやつ
+
+
 
     public int arrangeId = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        needskeeper = GameObject.Find("NeedsKeeper");
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            if(type == ItemType.life)
+            if (type == ItemType.life)
             {
-                if(PlayerController.hp < 5)
+                if (PlayerController.hp < 5)
                 {
                     PlayerController.hp++;
+                    //HP更新
+                    PlayerPrefs.SetInt("PlayerHP", PlayerController.hp);
+
+                    gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                    Destroy(gameObject);
                 }
             }
-            else if(type == ItemType.key)
+            else if (type == ItemType.key)
             {
                 ItemKeeper.hasKeys += 1;
+                gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                Destroy(gameObject);
             }
-            else if(type == ItemType.needA)
+            else if (type == ItemType.need)
             {
-                ItemKeeper.hasNeeds += 1;
-                ItemKeeper.hasNeedsA += 1;
-            }
-            else if (type == ItemType.needB)
-            {
-                ItemKeeper.hasNeeds += 1;
-                ItemKeeper.hasNeedsB += 1;
-            }
-            else if (type == ItemType.needC)
-            {
-                ItemKeeper.hasNeeds += 1;
-                ItemKeeper.hasNeedsC += 1;
-            }
-            else if (type == ItemType.needD)
-            {
-                ItemKeeper.hasNeeds += 1;
-                ItemKeeper.hasNeedsD += 1;
-            }
+                NeedsKeeper needsKeeper = needskeeper.GetComponent<NeedsKeeper>();
 
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            Destroy(gameObject);
+                ItemKeeper.hasNeeds += 1;
+                //PlayerPrefs.SetInt("Needs", ItemKeeper.hasNeeds);
+
+                needsKeeper.NeedsControll(needNumber);  //画面上側にとったアイテムを表示
+
+                gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                Destroy(gameObject);
+            }
+            //配置Idの記録
+            SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
         }
     }
 }

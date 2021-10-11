@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletShoot : MonoBehaviour
-{
+{//
     public float shootSpeed = 12.0f;  //’e‚Ì‘¬“x
     public float shootDelay = 0.25f;  //”­ŽËŠÔŠu
     

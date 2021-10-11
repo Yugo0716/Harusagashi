@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
-{
+{//
     public GameObject exit;
     public Sprite openImage;
     public Sprite closeImage;
+
+    public int arrangeId = 0;
 
     // Start is called before the first frame update
     void Start()
