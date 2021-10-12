@@ -34,35 +34,45 @@ public class SaveDataManager : MonoBehaviour
                     GameObject obj = objects[ii];
                     //GameObjectのタグを調べる
                     //Exitについて
-                    if(objTag == "Exit")
+                    if (objTag == "Exit")
                     {
                         Exit exit = obj.GetComponent<Exit>();
-                        if(exit.arrangeId == savedata.arrangeId)
+                        if (exit.arrangeId == savedata.arrangeId)
                         {
                             exit.open = true;
                         }
                     }
                     //Damageについて（主にEnemy）
-                    else if(objTag == "Damage")
+                    else if (objTag == "Damage")
                     {
 
                     }
                     //Itemについて
-                    else if(objTag == "Item")
+                    else if (objTag == "Item")
                     {
                         ItemData item = obj.GetComponent<ItemData>();
-                        if(item.arrangeId == savedata.arrangeId)
+                        if (item.arrangeId == savedata.arrangeId)
                         {
                             Destroy(obj);
                         }
                     }
                     //ItemImageについて
-                    else if(objTag == "ItemImage")
+                    else if (objTag == "ItemImage")
                     {
                         ItemImage itemImage = obj.GetComponent<ItemImage>();
-                        if(itemImage.arrangeId == savedata.arrangeId)
+                        if (itemImage.arrangeId == savedata.arrangeId)
                         {
                             obj.GetComponent<Image>().enabled = true;
+                        }
+                    }
+                    //Switchについて
+                    else if (objTag == "Switch")
+                    {
+                        SwitchAction swit = obj.GetComponent<SwitchAction>();
+                        if (swit.arrangeId == savedata.arrangeId)
+                        {
+                            swit.On();
+                            swit.GetComponent<SpriteRenderer>().sprite = swit.imageOn;
                         }
                     }
                 }

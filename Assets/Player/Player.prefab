@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canControll: 1
   axisH: 0
-  speed: 10
+  speed: 7
   jump: 24
   groundLayer:
     serializedVersion: 2
@@ -176,7 +176,7 @@ MonoBehaviour:
   onGround: 0
   canSelectFly: 1
   canFly: 0
-  flySpeed: 5
+  flySpeed: 3
   axisV: 0
   angleZ: -90
   stopAnime: PlayerStop

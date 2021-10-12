@@ -8,6 +8,7 @@ public class SwitchAction : MonoBehaviour
     public Sprite imageOn;
     public Sprite imageOff;
     public bool on = false;
+    public int arrangeId = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,24 +25,27 @@ public class SwitchAction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Bullet")
         {
-            if (on)
+            if (!on)
             {
-                on = false;
-                GetComponent<SpriteRenderer>().sprite = imageOff;
-                //----------------------
-                //èàóù
-                //---------------------
+                //on = true;
+                On();
+                SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
             }
-            else
+            //else
             {
-                on = true;
-                GetComponent<SpriteRenderer>().sprite = imageOn;
-                //----------------------
-                //èàóù
-                //---------------------
+                //on = true;
+                //GetComponent<SpriteRenderer>().sprite = imageOn;
+                //target.SetActive(true);
             }
         }
+    }
+    public void On()
+    {
+        on = true;
+        GetComponent<SpriteRenderer>().sprite = imageOn;
+        target.SetActive(false);
+
     }
 }
