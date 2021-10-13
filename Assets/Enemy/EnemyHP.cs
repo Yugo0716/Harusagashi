@@ -6,10 +6,14 @@ public class EnemyHP : MonoBehaviour
 {//
     public float hp = 3;
     Rigidbody2D rbody;
+    Animator animator;
+    public string damageAnime = "EnemyDamage";
+    public string normalAnime = "EnemyNormal";
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
     }
 
@@ -19,11 +23,18 @@ public class EnemyHP : MonoBehaviour
         
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet")
         {
             hp--;
+            Animator animator = GetComponent<Animator>();
+            
+            if (hp > 0)
+            {
+                StartCoroutine("DamageAnim");
+            }
             if(hp <= 0)
             {
                 gameObject.layer = LayerMask.NameToLayer("Enemy_Dead");
@@ -32,5 +43,11 @@ public class EnemyHP : MonoBehaviour
                 
             }
         }
+    }
+    IEnumerator DamageAnim()
+    {
+        animator.Play(damageAnime);
+        yield return new WaitForSeconds(0.2f);
+        animator.Play(normalAnime);
     }
 }

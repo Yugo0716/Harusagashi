@@ -32,6 +32,10 @@ public class SwitchAction : MonoBehaviour
                 //on = true;
                 On();
                 SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
+                if(collision.gameObject.tag == "Bullet")
+                {
+                    Destroy(collision.gameObject);
+                }
             }
             //else
             {

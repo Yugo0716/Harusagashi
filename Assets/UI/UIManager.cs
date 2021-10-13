@@ -67,10 +67,19 @@ public class UIManager : MonoBehaviour
     }
 
     //ƒŠƒgƒ‰ƒC
-    public void Retry()
+    public void RetryButtonClicked()
     {
-        PlayerController.hp = 3;
-        SceneManager.LoadScene(retrySceneName);
+        //PlayerPrefs.SetInt("PlayerHP", 3);
+        //SceneManager.LoadScene(retrySceneName);
+        string sceneName = PlayerPrefs.GetString("LastScene");
+        RoomManager.doorNumber = PlayerPrefs.GetInt("LastDoor");
+        PlayerPrefs.SetInt("PlayerHP", 5);
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void EndButtonClicked()
+    {
+        SceneManager.LoadScene("Title");
     }
 
     //‰æ‘œ”ñ•\Ž¦
