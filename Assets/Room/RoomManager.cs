@@ -57,6 +57,11 @@ public class RoomManager : MonoBehaviour
 
         }
 
-        SceneManager.LoadScene(scenename);
+        //SceneManager.LoadScene(scenename);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        PlayerController playerCnt = player.GetComponent<PlayerController>();
+        playerCnt.rbody.velocity = new Vector2(0, 0);
+        playerCnt.canControll = false;
+        FadeManager.Instance.LoadScene(scenename, 0.3f);
     }
 }

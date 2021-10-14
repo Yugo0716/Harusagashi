@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {//
-    Rigidbody2D rbody;
+    public Rigidbody2D rbody;
     //‘€ì‚Å‚«‚é‚©‚Ç‚¤‚©
     public bool canControll = true;
     //ˆÚ“®

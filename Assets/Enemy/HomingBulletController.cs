@@ -22,13 +22,17 @@ public class HomingBulletController : MonoBehaviour
     void Update()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        Vector3 playerPosDX = new Vector3(player.transform.position.x, player.transform.position.y + 3.2f, player.transform.position.z);
+        Vector3 playerPosDX = new Vector3(player.transform.position.x, player.transform.position.y + 1.8f, player.transform.position.z);
         Vector3 v = playerPosDX - transform.position;
         rbody.AddForce(v.normalized * bulletSpeed);
 
         float speedXTemp = Mathf.Clamp(rbody.velocity.x, -limitSpeed, limitSpeed);
         float speedYTemp = Mathf.Clamp(rbody.velocity.y, -limitSpeed, limitSpeed);
         rbody.velocity = new Vector3(speedXTemp, speedYTemp);
+
+        float rad = Mathf.Atan2(rbody.velocity.y, rbody.velocity.x);
+        float angle = rad * Mathf.Rad2Deg;
+        transform.localRotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
