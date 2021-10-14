@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
         string sceneName = PlayerPrefs.GetString("LastScene");
         RoomManager.doorNumber = PlayerPrefs.GetInt("LastDoor");
         PlayerPrefs.SetInt("PlayerHP", 5);
-        SceneManager.LoadScene(sceneName);
+        FadeManager.Instance.LoadScene(sceneName, 0.5f);
     }
 
     public void EndButtonClicked()
