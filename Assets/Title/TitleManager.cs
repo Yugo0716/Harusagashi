@@ -35,6 +35,7 @@ public class TitleManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("PlayerHP", 5);
         PlayerPrefs.SetString("LastScene", firstSceneName);
+        RoomManager.doorNumber = 0;
         SceneManager.LoadScene(firstSceneName);
     }
 
@@ -42,6 +43,7 @@ public class TitleManager : MonoBehaviour
     {
         string sceneName = PlayerPrefs.GetString("LastScene");
         RoomManager.doorNumber = PlayerPrefs.GetInt("LastDoor");
+        PlayerPrefs.SetInt("PlayerHP", 5);
         SceneManager.LoadScene(sceneName);
     }
 }

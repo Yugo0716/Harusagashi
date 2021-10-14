@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cef1e48da253534e94506b21fc6a00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootSpeed: 10
+  shootSpeed: 6
   shootDelay: 2
   reactionDistance: 25
   enemyB: {fileID: 0}

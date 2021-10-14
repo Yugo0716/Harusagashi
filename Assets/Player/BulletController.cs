@@ -5,11 +5,13 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {//
     public float deleteTime = 2;  //çÌèúéûä‘
+    public float z;
 
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, deleteTime);
+        z = transform.localRotation.z;
     }
 
     // Update is called once per frame
@@ -20,26 +22,22 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "Mirror90")
+        if (collision.gameObject.tag != "Mirror+90" && collision.gameObject.tag != "Mirror-90")
         {
             Destroy(gameObject);
         }
-        else if(collision.gameObject.tag == "Mirror90")
+        else if(collision.gameObject.tag == "Mirror+90")
         {
-            float z = transform.localRotation.z;
+            //z = transform.localRotation.z;
             z += 90;
-            transform.localRotation = Quaternion.Euler(0, 0, z);
+            transform.localRotation = Quaternion.Euler(0, 0,  z);
         }
 
-        if (collision.gameObject.tag != "Mirror-90")
-        {
-            Destroy(gameObject);
-        }
         else if (collision.gameObject.tag == "Mirror-90")
         {
-            float z = transform.localRotation.z;
-            z -= -90;
-            transform.localRotation = Quaternion.Euler(0, 0, z);
+            //z = transform.localRotation.z;
+            z += -90;
+            transform.localRotation = Quaternion.Euler(0, 0, -180 + z);
         }
     }
 }
