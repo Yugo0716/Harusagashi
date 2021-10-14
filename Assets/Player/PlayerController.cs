@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //ジャンプさせる
-                if (Input.GetButtonDown("Jump"))
+                if (onGround && Input.GetButtonDown("Jump"))
                 {
                     Jump();
                 }
@@ -151,7 +151,8 @@ public class PlayerController : MonoBehaviour
             {
                 rbody.gravityScale = 6.0f;
                 //地上判定
-                onGround = Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.05f), groundLayer);
+                onGround = IsCollision();
+                    //Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.04f), groundLayer);
                 #region//移動とジャンプ
                 //左右移動
                 if (onGround)
@@ -170,7 +171,9 @@ public class PlayerController : MonoBehaviour
                 //ジャンプ
                 if (onGround && goJump)
                 {
+                    rbody.velocity = new Vector2(rbody.velocity.x, 0f);
                     Vector2 jumpPw = new Vector2(0, jump);
+
                     rbody.AddForce(jumpPw, ForceMode2D.Impulse);
                     goJump = false;
 
@@ -223,6 +226,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if(rbody.velocity.y <= -20)
+        {
+            rbody.velocity = new Vector2(rbody.velocity.x, -20);
+        }
+
         if (nowAnime != oldAnime)
         {
             oldAnime = nowAnime;
@@ -235,6 +243,17 @@ public class PlayerController : MonoBehaviour
         goJump = true;
     }
 
+    bool IsCollision()
+    {
+        Vector3 leftSP = transform.position - Vector3.right * 0.4f - Vector3.up * 0.15f;
+        Vector3 rightSP = transform.position + Vector3.right * 0.4f - Vector3.up * 0.15f;
+        Vector3 EP = transform.position - Vector3.up * 0.2f;
+
+        Debug.DrawLine(leftSP, EP);
+        Debug.DrawLine(rightSP, EP);
+
+        return Physics2D.Linecast(leftSP, EP, groundLayer) || Physics2D.Linecast(rightSP, EP, groundLayer);
+    }
     //角度の取得
     float GetAngle(Vector2 p1, Vector2 p2)
     {
@@ -255,12 +274,17 @@ public class PlayerController : MonoBehaviour
         return angle;
     }
 
-    //敵との接触
+    //敵や即死との接触
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Damage")
         {
              GetDamage(collision.gameObject);
+        }
+        else if(collision.gameObject.tag == "Dead")
+        {
+            hp = 0;
+            GameOver();
         }
     }
 
