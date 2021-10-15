@@ -20,7 +20,7 @@ public class RoomManager : MonoBehaviour
             if(doorNumber == exit.doorNumber)
             {
                 float x = doorObj.transform.position.x;
-                float y = doorObj.transform.position.y;
+                float y = doorObj.transform.position.y -1.5f;
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
                 player.transform.position = new Vector3(x, y);
                 break;
@@ -43,7 +43,8 @@ public class RoomManager : MonoBehaviour
         {
             SaveDataManager.SaveArrangeData(nowScene);  //配置データを保存
         }
-        PlayerPrefs.SetString("LastSceme", scenename);  //シーン名を保存
+        PlayerPrefs.SetString("LastScene", scenename);  //シーン名を保存
+        Debug.Log(scenename);
         PlayerPrefs.SetInt("LastDoor", doornum);  //ドア番号を保存
         ItemKeeper.SaveItem();  //アイテムを保存
         //以下for内はシーン変更時にアイテム画像が保存されるようにするためのもの
@@ -62,6 +63,6 @@ public class RoomManager : MonoBehaviour
         PlayerController playerCnt = player.GetComponent<PlayerController>();
         playerCnt.rbody.velocity = new Vector2(0, 0);
         playerCnt.canControll = false;
-        FadeManager.Instance.LoadScene(scenename, 0.3f);
+        FadeManager.Instance.LoadScene(scenename, 0.2f);
     }
 }

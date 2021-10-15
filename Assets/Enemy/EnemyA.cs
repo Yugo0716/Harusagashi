@@ -12,7 +12,7 @@ public class EnemyA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (direction == "right") transform.localScale = new Vector2(-2, 2);
+        if (direction == "right") transform.localScale = new Vector2(-1, 1);
         defPos = transform.position;
     }
 
@@ -24,12 +24,12 @@ public class EnemyA : MonoBehaviour
             if(transform.position.x < defPos.x - (range / 2))
             {
                 direction = "right";
-                transform.localScale = new Vector2(-2, 2);
+                transform.localScale = new Vector2(-1, 1);
             }
             if(transform.position.x > defPos.x + (range / 2))
             {
                 direction = "left";
-                transform.localScale = new Vector2(2, 2);
+                transform.localScale = new Vector2(1, 1);
             }
         }
     }
@@ -48,12 +48,12 @@ public class EnemyA : MonoBehaviour
             if (direction == "right")
             {
                 direction = "left";
-                transform.localScale = new Vector2(2, 2);
+                transform.localScale = new Vector2(-1, 1);
             }
             else
             {
                 direction = "right";
-                transform.localScale = new Vector2(-2, 2);
+                transform.localScale = new Vector2(-1, 1);
             }
         }
     }

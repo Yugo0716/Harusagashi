@@ -28,7 +28,7 @@ public class Exit : MonoBehaviour
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             PlayerController playerCnt = player.GetComponent<PlayerController>();
-            if (playerCnt.onGround == true && open)
+            if (playerCnt.onGround == true && playerCnt.canFly == false && open)
             {
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                     {

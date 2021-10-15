@@ -55,8 +55,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        string a = PlayerPrefs.GetString("LastScene");
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log(a);
+        }
         //ÉQÅ[ÉÄíÜà»äOÇÕâΩÇ‡ÇµÇ»Ç¢
-        if(gameState != "playing")
+        if (gameState != "playing")
         {
             return;
         }
@@ -206,9 +211,8 @@ public class PlayerController : MonoBehaviour
                         {
                             rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
                         }
-
-                        nowAnime = jumpAnime;
                     }
+                    nowAnime = jumpAnime;
 
                 }
                 #endregion
@@ -245,9 +249,9 @@ public class PlayerController : MonoBehaviour
 
     bool IsCollision()
     {
-        Vector3 leftSP = transform.position - Vector3.right * 0.4f - Vector3.up * 0.15f;
-        Vector3 rightSP = transform.position + Vector3.right * 0.4f - Vector3.up * 0.15f;
-        Vector3 EP = transform.position - Vector3.up * 0.2f;
+        Vector3 leftSP = transform.position - Vector3.right * 0.4f - Vector3.up * 0.06f;
+        Vector3 rightSP = transform.position + Vector3.right * 0.4f - Vector3.up * 0.06f;
+        Vector3 EP = transform.position - Vector3.up * 0.06f;
 
         Debug.DrawLine(leftSP, EP);
         Debug.DrawLine(rightSP, EP);
