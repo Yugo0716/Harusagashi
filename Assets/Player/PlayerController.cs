@@ -41,7 +41,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //êßçÏóp
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("PlayerHP", 5);
+
         rbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
