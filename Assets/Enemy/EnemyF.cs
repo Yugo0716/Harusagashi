@@ -28,7 +28,7 @@ public class EnemyF : MonoBehaviour
 
     private void FixedUpdate()
     {
-        onGround = Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.5f), groundLayer);
+        onGround = IsCollision();
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -59,5 +59,34 @@ public class EnemyF : MonoBehaviour
                 transform.localScale = new Vector2(1, 1);
             }
         }
+        else if(!onGround && player != null)
+        {
+            if (dx >= 0 && dx <= xRange && dy >= -yRange && dy <= yRange)
+            {
+                if(rbody.velocity.x < 0.5f)
+                {
+                    rbody.AddForce(new Vector2(-1.5f, 0));
+                }
+            }
+            else if (dx < 0 && dx >= -xRange && dy >= -yRange && dy <= yRange)
+            {
+                if (rbody.velocity.x > -0.5f)
+                {
+                    rbody.AddForce(new Vector2(1.5f, 0));
+                }
+            }
+        }
+    }
+
+    bool IsCollision()
+    {
+        Vector3 leftSP = transform.position - Vector3.right * 0.8f - Vector3.up * 0.06f;
+        Vector3 rightSP = transform.position + Vector3.right * 0.8f - Vector3.up * 0.06f;
+        Vector3 EP = transform.position - Vector3.up * 0.06f;
+
+        Debug.DrawLine(leftSP, EP);
+        Debug.DrawLine(rightSP, EP);
+
+        return Physics2D.Linecast(leftSP, EP, groundLayer) || Physics2D.Linecast(rightSP, EP, groundLayer);
     }
 }

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public bool canControll = true;
     //移動
     public float axisH = 0.0f;
-    public float speed = 7.0f;
+    public float speed = 9.0f;
     //ジャンプ
     public float jump = 9.0f;  //ジャンプ力
     public LayerMask groundLayer;  //着地できるレイヤー
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public static string gameState;
     bool inDamage = false;
     //アニメーション
-    Animator animator;
+    public Animator animator;
     public string stopAnime = "PlayerStop";
     public string walkAnime = "PlayerWalk";
     public string jumpAnime = "PlayerJump";
@@ -37,12 +37,15 @@ public class PlayerController : MonoBehaviour
     string nowAnime = "";
     string oldAnime = "";
 
+
     // Start is called before the first frame update
     void Start()
     {
         
         rbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        
         //アニメーション
         nowAnime = stopAnime;
         oldAnime = stopAnime;
@@ -150,75 +153,99 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
-        if (canControll)
-        {
+        
             if (canFly == false)
             {
                 rbody.gravityScale = 6.0f;
                 //地上判定
                 onGround = IsCollision();
-                    //Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.04f), groundLayer);
-                #region//移動とジャンプ
-                //左右移動
-                if (onGround)
+                //Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.04f), groundLayer);
+                if (canControll)
                 {
-                    rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
-                    if(axisH == 0)
+                    #region//移動とジャンプ
+                    //左右移動
+                    if (onGround)
                     {
-                        nowAnime = stopAnime;
+                        //rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
+                        if (axisH > 0)
+                        {
+                            rbody.AddForce(transform.right * 50.0f);
+                            if (rbody.velocity.x >= speed)
+                            {
+                                rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
+                            }
+                        }
+                        else if (axisH < 0)
+                        {
+                            rbody.AddForce(-transform.right * 50.0f);
+                            if (rbody.velocity.x <= -speed)
+                            {
+                                rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
+                            }
+                        }
+                        else
+                        {
+                            rbody.velocity = new Vector2(0, 0);
+                        }
+                        if (axisH == 0)
+                        {
+                            nowAnime = stopAnime;
+                        }
+                        else
+                        {
+                            nowAnime = walkAnime;
+                        }
                     }
-                    else
+
+                    //ジャンプ
+                    if (onGround && goJump)
                     {
-                        nowAnime = walkAnime;
+                        rbody.velocity = new Vector2(rbody.velocity.x, 0f);
+                        Vector2 jumpPw = new Vector2(0, jump);
+
+                        rbody.AddForce(jumpPw, ForceMode2D.Impulse);
+                        goJump = false;
+
+                        nowAnime = jumpAnime;
                     }
+
+                    //空中移動
+                    if (inAir)
+                    {
+                        if (axisH >= 0)
+                        {
+                            if (rbody.velocity.x <= speed)
+                            {
+                                Vector2 airPw = new Vector2(axisH * 40, 0);
+                                rbody.AddForce(airPw, ForceMode2D.Force);
+                            }
+                            else if (rbody.velocity.x > speed && axisH != 0)
+                            {
+                                rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
+                            }
+                        }
+                        else if (axisH < 0)
+                        {
+                            if (rbody.velocity.x >= -speed)
+                            {
+                                Vector2 airPw = new Vector2(axisH * 40, 0);
+                                rbody.AddForce(airPw, ForceMode2D.Force);
+                            }
+                            else if (rbody.velocity.x < -speed && axisH != 0)
+                            {
+                                rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
+                            }
+                        }
+                        nowAnime = jumpAnime;
+
+                    }
+                    #endregion
                 }
-
-                //ジャンプ
-                if (onGround && goJump)
-                {
-                    rbody.velocity = new Vector2(rbody.velocity.x, 0f);
-                    Vector2 jumpPw = new Vector2(0, jump);
-
-                    rbody.AddForce(jumpPw, ForceMode2D.Impulse);
-                    goJump = false;
-
-                    nowAnime = jumpAnime;
-                }
-
-                //空中移動
-                if (inAir)
-                {
-                    if (axisH >= 0)
-                    {
-                        if (rbody.velocity.x <= speed)
-                        {
-                            Vector2 airPw = new Vector2(axisH * 50, 0);
-                            rbody.AddForce(airPw, ForceMode2D.Force);
-                        }
-                        else if (rbody.velocity.x > speed && axisH != 0)
-                        {
-                            rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
-                        }
-                    }
-                    else if (axisH < 0)
-                    {
-                        if (rbody.velocity.x >= -speed)
-                        {
-                            Vector2 airPw = new Vector2(axisH * 50, 0);
-                            rbody.AddForce(airPw, ForceMode2D.Force);
-                        }
-                        else if (rbody.velocity.x < -speed && axisH != 0)
-                        {
-                            rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
-                        }
-                    }
-                    nowAnime = jumpAnime;
-
-                }
-                #endregion
             }
             else
             {
+                if (canControll)
+                {
                 #region//飛行
                 //重力不可
                 rbody.gravityScale = 0.0f;
@@ -227,8 +254,9 @@ public class PlayerController : MonoBehaviour
 
                 nowAnime = flyAnime;
                 #endregion
+                }
             }
-        }
+        
 
         if(rbody.velocity.y <= -20)
         {
@@ -278,7 +306,7 @@ public class PlayerController : MonoBehaviour
         return angle;
     }
 
-    //敵や即死との接触
+    //敵や即死、アイテムとの接触
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Damage")

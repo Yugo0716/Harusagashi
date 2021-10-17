@@ -23,7 +23,7 @@ public class BulletShoot : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         PlayerController playerCnt = player.GetComponent<PlayerController>();
-        if (playerCnt.canFly == false)
+        if (playerCnt.canFly == false && playerCnt.canControll == true)
         {
             //ƒ{ƒ^ƒ“‰Ÿ‚µ‚ÄUŒ‚
             if ((Input.GetButtonDown("Fire3")))

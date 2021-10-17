@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {//
+    public int arrangeId = 0;
     public float hp = 3;
     Rigidbody2D rbody;
     Animator animator;
+    public GameObject dropItem;
     public string damageAnime = "EnemyDamage";
     public string normalAnime = "EnemyNormal";
 
@@ -15,6 +17,11 @@ public class EnemyHP : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
+        if(dropItem != null)
+        {
+            dropItem.SetActive(false);
+        }
+        
     }
 
     // Update is called once per frame
@@ -39,8 +46,12 @@ public class EnemyHP : MonoBehaviour
             {
                 gameObject.layer = LayerMask.NameToLayer("Enemy_Dead");
                 rbody.velocity = new Vector2(0, 0);
+                if(dropItem != null)
+                {
+                    dropItem.SetActive(true);
+                }
                 Destroy(gameObject, 0.5f);
-                
+                SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
             }
         }
     }

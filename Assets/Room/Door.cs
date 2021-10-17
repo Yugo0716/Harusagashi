@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     public Sprite closeImage;
     Animator animator;
     public string openAnime = "WarpZoneOpen";
+    public string closeAnime = "WarpZoneClose";
 
     public int arrangeId = 0;
 
@@ -25,6 +26,7 @@ public class Door : MonoBehaviour
         if(exitCnt.open == false)
         {
             GetComponent<SpriteRenderer>().sprite = closeImage;
+            animator.Play(closeAnime);
         }
         else
         {

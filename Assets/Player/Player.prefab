@@ -159,8 +159,8 @@ MonoBehaviour:
   rbody: {fileID: 0}
   canControll: 1
   axisH: 0
-  speed: 7
-  jump: 19
+  speed: 9
+  jump: 20
   groundLayer:
     serializedVersion: 2
     m_Bits: 256

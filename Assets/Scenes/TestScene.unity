@@ -1070,6 +1070,7 @@ MonoBehaviour:
   openImage: {fileID: 21300000, guid: fa32c941edba0374bb9fc7a51f171e29, type: 3}
   closeImage: {fileID: 21300000, guid: dac8974d259d5c14f98e73af07e782e3, type: 3}
   openAnime: WarpZoneOpen
+  closeAnime: WarpZoneClose
   arrangeId: 1
 --- !u!61 &1120553321
 BoxCollider2D:
@@ -1453,6 +1454,7 @@ GameObject:
   - component: {fileID: 1905840738}
   - component: {fileID: 1905840737}
   - component: {fileID: 1905840736}
+  - component: {fileID: 1905840739}
   m_Layer: 17
   m_Name: Mirror-90
   m_TagString: Ground
@@ -1559,6 +1561,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!114 &1905840739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905840735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6d44a3b3f09384aa164ad5cab98258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 0.01
+  moveY: 1
+  times: 1
+  weight: 0
+  isCanMove: 1
 --- !u!1 &1924876006
 GameObject:
   m_ObjectHideFlags: 0

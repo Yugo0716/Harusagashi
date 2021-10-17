@@ -45,7 +45,11 @@ public class SaveDataManager : MonoBehaviour
                     //Damage‚É‚Â‚¢‚Äiå‚ÉEnemyj
                     else if (objTag == "Damage")
                     {
-
+                        EnemyHP enemy = obj.GetComponent<EnemyHP>();
+                        if(enemy.arrangeId == savedata.arrangeId)
+                        {
+                            Destroy(obj);
+                        }
                     }
                     //Item‚É‚Â‚¢‚Ä
                     else if (objTag == "Item")
