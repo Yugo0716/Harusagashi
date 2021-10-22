@@ -6,11 +6,12 @@ public class EnemyHP : MonoBehaviour
 {//
     public int arrangeId = 0;
     public float hp = 3;
-    Rigidbody2D rbody;
-    Animator animator;
+    public string deadAnime;
     public GameObject dropItem;
-    public string damageAnime = "EnemyDamage";
-    public string normalAnime = "EnemyNormal";
+
+    Animator animator;
+    Rigidbody2D rbody;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +37,10 @@ public class EnemyHP : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             hp--;
-            Animator animator = GetComponent<Animator>();
             
             if (hp > 0)
             {
-                StartCoroutine("DamageAnim");
+                
             }
             if(hp <= 0)
             {
@@ -50,15 +50,9 @@ public class EnemyHP : MonoBehaviour
                 {
                     dropItem.SetActive(true);
                 }
-                Destroy(gameObject, 0.5f);
+                Destroy(gameObject, 0.1f);
                 SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
             }
         }
-    }
-    IEnumerator DamageAnim()
-    {
-        animator.Play(damageAnime);
-        yield return new WaitForSeconds(0.2f);
-        animator.Play(normalAnime);
     }
 }

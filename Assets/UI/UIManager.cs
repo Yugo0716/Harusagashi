@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     public GameObject panel;
     public Sprite gameOverSpr;
 
+
     public string retrySceneName = "";
 
     // Start is called before the first frame update
@@ -28,7 +29,8 @@ public class UIManager : MonoBehaviour
     {
         UpdateHP();
         InactiveImage();  //Invokeにするとゲームスタートの字幕
-        panel.SetActive(false);       
+        panel.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -69,12 +71,14 @@ public class UIManager : MonoBehaviour
     //リトライ
     public void RetryButtonClicked()
     {
-        //PlayerPrefs.SetInt("PlayerHP", 3);
+        
         //SceneManager.LoadScene(retrySceneName);
         string sceneName = PlayerPrefs.GetString("LastScene");
         RoomManager.doorNumber = PlayerPrefs.GetInt("LastDoor");
         PlayerPrefs.SetInt("PlayerHP", 5);
+        Debug.Log(sceneName);
         FadeManager.Instance.LoadScene(sceneName, 0.5f);
+        
     }
 
     public void EndButtonClicked()

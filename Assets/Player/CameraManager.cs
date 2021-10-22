@@ -10,6 +10,8 @@ public class CameraManager : MonoBehaviour
     public float topLimit = 0.0f;
     public float bottomLimit = 0.0f;
 
+    public GameObject backGround;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,10 @@ public class CameraManager : MonoBehaviour
                // Vector2 pos = Vector2.Lerp(playerPos, targetPos, 0.5f);
                // transform.position = pos;
             }
-            
+            if(backGround != null)
+            {
+                backGround.transform.position = transform.position;
+            }
         }
     }
 }

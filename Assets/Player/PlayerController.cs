@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //êßçÏóp
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("PlayerHP", 5);
 
         rbody = GetComponent<Rigidbody2D>();

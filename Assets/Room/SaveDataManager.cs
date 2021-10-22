@@ -51,6 +51,15 @@ public class SaveDataManager : MonoBehaviour
                             Destroy(obj);
                         }
                     }
+                    //Heal‚É‚Â‚¢‚Ä
+                    else if(obj.tag == "Heal")
+                    {
+                        ItemData item = obj.GetComponent<ItemData>();
+                        if (item.arrangeId == savedata.arrangeId)
+                        {
+                            Destroy(obj);
+                        }
+                    }
                     //Item‚É‚Â‚¢‚Ä
                     else if (objTag == "Item")
                     {

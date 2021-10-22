@@ -15,6 +15,7 @@ public class ItemData : MonoBehaviour
     public int count = 1;  //アイテム数
     public int needNumber;
     GameObject needskeeper;  //ヒエラルキーにあるやつ
+    GameObject keykeeper;
 
 
 
@@ -30,6 +31,7 @@ public class ItemData : MonoBehaviour
     void Update()
     {
         needskeeper = GameObject.Find("NeedsKeeper");
+        keykeeper = GameObject.Find("KeyKeeper");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,14 +45,19 @@ public class ItemData : MonoBehaviour
                     PlayerController.hp++;
                     //HP更新
                     PlayerPrefs.SetInt("PlayerHP", PlayerController.hp);
-
-                    gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                    Destroy(gameObject);
                 }
+                gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                Destroy(gameObject);
+                
             }
             else if (type == ItemType.key)
             {
+                KeyKeeper keyKeeper = keykeeper.GetComponent<KeyKeeper>();
+
                 ItemKeeper.hasKeys += 1;
+
+                keyKeeper.KeyControll();
+
                 gameObject.GetComponent<CircleCollider2D>().enabled = false;
                 Destroy(gameObject);
             }

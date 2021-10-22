@@ -31,8 +31,8 @@ public class EnemyBDG : MonoBehaviour
                 //ƒvƒŒƒCƒ„[‚Ì•ûŒü‚ðŒ©‚é
                 float dx = player.transform.position.x - transform.position.x;
 
-                if (dx >= 0) transform.localScale = new Vector2(1, 1.5f);
-                else if (dx < 0) transform.localScale = new Vector2(-1, 1.5f);
+                if (dx >= 0) transform.localScale = new Vector2(1, 1f);
+                else if (dx < 0) transform.localScale = new Vector2(-1, 1f);
             }
             else
             {

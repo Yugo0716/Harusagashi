@@ -20,7 +20,12 @@ public class ItemKeeper : MonoBehaviour
     {
         if(hasNeeds == 9)
         {
-            SceneManager.LoadScene("TestScene3");
+            //ƒNƒŠƒA‚Ìˆ—
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log("Needs:" + hasNeeds);
+            Debug.Log("Key:" + hasKeys);
         }
     }
 
