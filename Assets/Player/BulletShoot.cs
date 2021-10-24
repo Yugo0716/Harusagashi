@@ -38,6 +38,7 @@ public class BulletShoot : MonoBehaviour
     {
         if(inAttack == false)
         {
+            SoundManager.soundManager.SEPlay(SEType.Attack);
             inAttack = true;
             //’e‚ÌƒxƒNƒgƒ‹
             GameObject player = GameObject.FindGameObjectWithTag("Player");

@@ -14,7 +14,6 @@ public class NeedsKeeper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int[] itemNumber = new int[9];
         //itemNumberが1かそれ以外か判別、1なら消す、1以外ならそのまま表示させる
         for(int i = 0; i < itemNumber.Length; i++)
         {
@@ -22,13 +21,18 @@ public class NeedsKeeper : MonoBehaviour
             itemNumber[i] = PlayerPrefs.GetInt("Item" + iChara);  //"Item0~8"がitemNumber[0~8]の値、1が入っているか読み込み
         }
         
-        for (int k = 0; k < needs.Length; k++)
+        if(needs != null)
         {
-            if(itemNumber[k] != 1)
+            for (int k = 0; k < needs.Length; k++)
             {
-                needs[k].GetComponent<Image>().enabled = false;
+                if (itemNumber[k] != 1)
+                {
+                    if(needs[k]!= null) needs[k].GetComponent<Image>().enabled = false;
+                }
+
             }
         }
+        
     }
 
     // Update is called once per frame
@@ -40,9 +44,18 @@ public class NeedsKeeper : MonoBehaviour
     public void NeedsControll(int i)  //以下はアイテム0~8に触れると実行される
     {
         number = i.ToString();
-        needs[i].GetComponent<Image>().enabled = true;
+        if(needs != null) needs[i].GetComponent<Image>().enabled = true;
         figure[i] = 1;  //figure[i]の値が1の時、シーン変更時にセーブされる
         //PlayerPrefs.SetInt("Item" + number, 1);
         
+    }
+
+    public void Initiarize()
+    {
+        for(int i = 0; i < figure.Length; i++)
+        {
+            figure[i] = 0;
+            itemNumber[i] = 0;
+        }
     }
 }

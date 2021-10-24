@@ -18,6 +18,8 @@ TagManager:
   - Mirror+90
   - Mirror-90
   - Fall
+  - KeyGate
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

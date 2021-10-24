@@ -276,12 +276,14 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         goJump = true;
+
+        SoundManager.soundManager.SEPlay(SEType.Jump);
     }
 
     bool IsCollision()
     {
-        Vector3 leftSP = transform.position - Vector3.right * 0.4f - Vector3.up * 0.06f;
-        Vector3 rightSP = transform.position + Vector3.right * 0.4f - Vector3.up * 0.06f;
+        Vector3 leftSP = transform.position - Vector3.right * 0.35f - Vector3.up * 0.06f;
+        Vector3 rightSP = transform.position + Vector3.right * 0.35f - Vector3.up * 0.06f;
         Vector3 EP = transform.position - Vector3.up * 0.06f;
 
         Debug.DrawLine(leftSP, EP);
@@ -312,7 +314,7 @@ public class PlayerController : MonoBehaviour
     //敵や即死、アイテムとの接触
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Damage")
+        if(collision.gameObject.tag == "Damage" || collision.gameObject.tag == "EnemyBullet")
         {
              GetDamage(collision.gameObject);
         }
@@ -328,6 +330,7 @@ public class PlayerController : MonoBehaviour
     {
         if(gameState == "playing")
         {
+            SoundManager.soundManager.SEPlay(SEType.Damage);
             hp--;
             //HP更新
             PlayerPrefs.SetInt("PlayerHP", hp);
@@ -377,6 +380,7 @@ public class PlayerController : MonoBehaviour
         rbody.gravityScale = 1;
         rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
         animator.Play(deadAnime);
+        SoundManager.soundManager.SEPlay(SEType.GameOver);
         Destroy(gameObject, 1.0f);
     }
 }

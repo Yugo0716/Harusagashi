@@ -77,6 +77,8 @@ public class UIManager : MonoBehaviour
         RoomManager.doorNumber = PlayerPrefs.GetInt("LastDoor");
         PlayerPrefs.SetInt("PlayerHP", 5);
         Debug.Log(sceneName);
+
+        SoundManager.playingBGM = BGMType.None;
         FadeManager.Instance.LoadScene(sceneName, 0.5f);
         
     }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7763965843232679563}
   m_Layer: 19
   m_Name: Needle
-  m_TagString: Damage
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

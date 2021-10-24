@@ -113,6 +113,7 @@ public class EnemyD : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            SoundManager.soundManager.SEPlay(SEType.Hit);
             StartCoroutine("DamageAnim");
             hp--;
 

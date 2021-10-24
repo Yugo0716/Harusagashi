@@ -88,6 +88,15 @@ public class SaveDataManager : MonoBehaviour
                             swit.GetComponent<SpriteRenderer>().sprite = swit.imageOn;
                         }
                     }
+                    //KeyGate‚É‚Â‚¢‚Ä
+                    else if(obj.tag == "KeyGate")
+                    {
+                        KeyGate keyGate = obj.GetComponent<KeyGate>();
+                        if(keyGate.arrangeId == savedata.arrangeId)
+                        {
+                            Destroy(obj);
+                        }
+                    }
                 }
             }
         }

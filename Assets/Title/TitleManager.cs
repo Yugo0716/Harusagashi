@@ -10,6 +10,9 @@ public class TitleManager : MonoBehaviour
     public GameObject continueButton;
     public string firstSceneName;
 
+    public GameObject needsKeeper;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +35,15 @@ public class TitleManager : MonoBehaviour
 
     public void StartButtonClicked()
     {
+        needsKeeper = GameObject.Find("NeedsKeeper");
+        NeedsKeeper needskeeper = needsKeeper.GetComponent<NeedsKeeper>();
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("PlayerHP", 5);
         PlayerPrefs.SetString("LastScene", firstSceneName);
         RoomManager.doorNumber = 0;
         FadeManager.Instance.LoadScene(firstSceneName, 0.5f);
+
+        needskeeper.Initiarize();
     }
 
     public void ContinueButtonClicked()

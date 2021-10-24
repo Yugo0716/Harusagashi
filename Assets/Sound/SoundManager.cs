@@ -11,21 +11,32 @@ public enum BGMType
 //SEÉ^ÉCÉv
 public enum SEType
 {
-
+    Jump,
+    Warp,
+    Reflect,
+    Heal,
+    Damage,
+    Select,
+    GameOver,
+    Attack,
+    Hit,
+    Item,
 }
 
 public class SoundManager : MonoBehaviour
 {
     //SE
-    public AudioClip select;
-    public AudioClip playerJump;
-    public AudioClip playerShoot;
-    public AudioClip playerDamage;
-    public AudioClip getItem;
-    public AudioClip BulletHit;
-    public AudioClip warp;
-    public AudioClip switchOn;
-    public AudioClip reflect;
+    public AudioClip selectSE;
+    public AudioClip jumpSE;
+    public AudioClip attackSE;
+    public AudioClip damageSE;
+    public AudioClip itemSE;
+    public AudioClip hitSE;
+    public AudioClip warpSE;
+    //public AudioClip switchOnSE;
+    public AudioClip reflectSE;
+    public AudioClip healSE;
+    public AudioClip gameOverSE;
 
     public static SoundManager soundManager;
 
@@ -74,6 +85,45 @@ public class SoundManager : MonoBehaviour
     //SEçƒê∂
     public void SEPlay(SEType type)
     {
-
+        if(type == SEType.Jump)
+        {
+            GetComponent<AudioSource>().PlayOneShot(jumpSE);
+        }
+        else if(type == SEType.Warp)
+        {
+            GetComponent<AudioSource>().PlayOneShot(warpSE);
+        }
+        else if (type == SEType.Reflect)
+        {
+            GetComponent<AudioSource>().PlayOneShot(reflectSE);
+        }
+        else if (type == SEType.Heal)
+        {
+            GetComponent<AudioSource>().PlayOneShot(healSE);
+        }
+        else if (type == SEType.Damage)
+        {
+            GetComponent<AudioSource>().PlayOneShot(damageSE);
+        }
+        else if (type == SEType.Select)
+        {
+            GetComponent<AudioSource>().PlayOneShot(selectSE);
+        }
+        else if (type == SEType.GameOver)
+        {
+            GetComponent<AudioSource>().PlayOneShot(gameOverSE);
+        }
+        else if (type == SEType.Attack)
+        {
+            GetComponent<AudioSource>().PlayOneShot(attackSE);
+        }
+        else if (type == SEType.Hit)
+        {
+            GetComponent<AudioSource>().PlayOneShot(hitSE);
+        }
+        else if (type == SEType.Item)
+        {
+            GetComponent<AudioSource>().PlayOneShot(itemSE);
+        }
     }
 }

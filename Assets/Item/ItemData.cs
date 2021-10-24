@@ -42,6 +42,7 @@ public class ItemData : MonoBehaviour
             {
                 if (PlayerController.hp < 5)
                 {
+                    SoundManager.soundManager.SEPlay(SEType.Heal);
                     PlayerController.hp++;
                     //HPXV
                     PlayerPrefs.SetInt("PlayerHP", PlayerController.hp);
@@ -63,6 +64,7 @@ public class ItemData : MonoBehaviour
             }
             else if (type == ItemType.need)
             {
+                SoundManager.soundManager.SEPlay(SEType.Item);
                 NeedsKeeper needsKeeper = needskeeper.GetComponent<NeedsKeeper>();
 
                 ItemKeeper.hasNeeds += 1;

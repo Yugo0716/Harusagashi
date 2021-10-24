@@ -37,6 +37,7 @@ public class EnemyC : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if(player != null)
         {
+            
             if (isActive)
             {
                 Vector3 playerPosDX = new Vector3(player.transform.position.x, player.transform.position.y + 2.0f, player.transform.position.z);
@@ -66,6 +67,7 @@ public class EnemyC : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            SoundManager.soundManager.SEPlay(SEType.Hit);
             StartCoroutine("DamageAnim");
             hp--;
 

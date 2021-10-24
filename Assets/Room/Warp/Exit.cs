@@ -32,6 +32,7 @@ public class Exit : MonoBehaviour
             {
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                     {
+                        SoundManager.soundManager.SEPlay(SEType.Warp);
                         RoomManager.ChangeScene(sceneName, doorNumber);
                     }
             }

@@ -120,7 +120,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06, y: 1.15}
+  m_Offset: {x: 0, y: 1.15}
   m_Size: {x: 0.7, y: 2.2561808}
   m_Direction: 0
 --- !u!50 &7086611892726779818
@@ -170,6 +170,7 @@ MonoBehaviour:
   flySpeed: 5
   axisV: 0
   angleZ: -90
+  animator: {fileID: 0}
   stopAnime: PlayerStop
   walkAnime: PlayerRun
   jumpAnime: PlayerJump

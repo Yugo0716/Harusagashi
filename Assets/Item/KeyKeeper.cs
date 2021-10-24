@@ -33,4 +33,9 @@ public class KeyKeeper : MonoBehaviour
         keyImage.GetComponent<Image>().enabled = true;
         //hasKeys = 1;
     }
+
+    public void KeyImageErase()
+    {
+        keyImage.GetComponent<Image>().enabled = false;
+    }
 }
