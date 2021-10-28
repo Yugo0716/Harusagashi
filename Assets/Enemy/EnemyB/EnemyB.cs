@@ -10,6 +10,7 @@ public class EnemyB : MonoBehaviour
     Vector3 defPos;
     public float shootSpeed = 12.0f;  //弾の速度
     public GameObject bulletPrefab;
+    float dx;
 
     //HP関連
     public int arrangeId = 0;
@@ -38,12 +39,13 @@ public class EnemyB : MonoBehaviour
         transform.position = new Vector3(defPos.x, transform.position.y, transform.position.z);
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        dx = player.transform.position.x - transform.position.x;
         if (player != null)
         {
+            float dist = Vector2.Distance(transform.position, player.transform.position);
             if (isActive)
             {
                 //プレイヤーの方向を見る
-                float dx = player.transform.position.x - transform.position.x;
                 float dy = player.transform.position.y - transform.position.y;
 
                 if (dx >= 0) transform.localScale = new Vector2(1, 1f);
@@ -52,7 +54,7 @@ public class EnemyB : MonoBehaviour
                 //float dist = Vector2.Distance(transform.position, player.transform.position);
                 if (Mathf.Abs(dy) < 8.0f && Mathf.Abs(dx) < reactionDistance)
                 {
-                    Attack();//ほんとはアニメ
+                    //Attack();//ほんとはアニメ
                 }
                 else
                 {
@@ -62,11 +64,24 @@ public class EnemyB : MonoBehaviour
             }
             else
             {
-                //距離チェック
-                float dist = Vector2.Distance(transform.position, player.transform.position);
+                //距離チェック                
                 if (dist < reactionDistance)
                 {
                     isActive = true;
+                }
+            }
+            if(dist >= reactionDistance)
+            {
+                isActive = false;
+            }
+
+            if (isActive && player != null)
+            {
+                float dy = player.transform.position.y - transform.position.y;
+
+                if (Mathf.Abs(dy) < 8.0f && Mathf.Abs(dx) < reactionDistance)
+                {
+                    animator.Play("EnemyBNormal");
                 }
             }
         }
@@ -78,22 +93,25 @@ public class EnemyB : MonoBehaviour
 
     public void Attack()
     {
+        if (isActive)
+        {
             //弾のベクトル
             float direction = transform.localScale.x;
             //弾を作る
             GameObject bulletObj;
             if (direction >= 0)
             {
-                bulletObj = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                bulletObj = Instantiate(bulletPrefab, new Vector2(transform.position.x -0.6f, transform.position.y), Quaternion.identity);
             }
             else
             {
-                bulletObj = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 180));
+                bulletObj = Instantiate(bulletPrefab, new Vector2(transform.position.x - 0.6f, transform.position.y), Quaternion.Euler(0, 0, 180));
             }
             Vector3 v = new Vector3(direction, 0) * shootSpeed;
             //弾に力を加える
             Rigidbody2D rbody = bulletObj.GetComponent<Rigidbody2D>();
             rbody.AddForce(v, ForceMode2D.Impulse);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

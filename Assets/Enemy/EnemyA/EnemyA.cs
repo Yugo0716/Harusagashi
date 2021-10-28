@@ -28,7 +28,7 @@ public class EnemyA : MonoBehaviour
             dropItem.SetActive(false);
         }
 
-        if (direction == "right") transform.localScale = new Vector2(-1, 1);
+        if (direction == "right") transform.localScale = new Vector2(1, 1);
         defPos = transform.position;
     }
 
@@ -40,12 +40,12 @@ public class EnemyA : MonoBehaviour
             if(transform.position.x < defPos.x - (range / 2))
             {
                 direction = "right";
-                transform.localScale = new Vector2(-1, 1);
+                transform.localScale = new Vector2(1, 1);
             }
             if(transform.position.x > defPos.x + (range / 2))
             {
                 direction = "left";
-                transform.localScale = new Vector2(1, 1);
+                transform.localScale = new Vector2(-1, 1);
             }
         }
     }

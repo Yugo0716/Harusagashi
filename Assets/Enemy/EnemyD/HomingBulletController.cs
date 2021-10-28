@@ -32,9 +32,9 @@ public class HomingBulletController : MonoBehaviour
             float speedYTemp = Mathf.Clamp(rbody.velocity.y, -limitSpeed, limitSpeed);
             rbody.velocity = new Vector3(speedXTemp, speedYTemp);
 
-            float rad = Mathf.Atan2(rbody.velocity.y, rbody.velocity.x);
-            float angle = rad * Mathf.Rad2Deg;
-            transform.localRotation = Quaternion.Euler(0, 0, angle);
+            //float rad = Mathf.Atan2(rbody.velocity.y, rbody.velocity.x);
+            //float angle = rad * Mathf.Rad2Deg;
+            //transform.localRotation = Quaternion.Euler(0, 0, angle);
         }
         
     }
