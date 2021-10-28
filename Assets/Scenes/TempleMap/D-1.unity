@@ -134,6 +134,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarpZone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2725746223053711842, guid: cc485007bd7f09f49b28dc06806e9e88, type: 3}
+      propertyPath: sceneName
+      value: D-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725746223053711842, guid: cc485007bd7f09f49b28dc06806e9e88, type: 3}
+      propertyPath: doorNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3797048061349293013, guid: cc485007bd7f09f49b28dc06806e9e88, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -658,6 +666,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarpZone
       objectReference: {fileID: 0}
+    - target: {fileID: 2725746223053711842, guid: cc485007bd7f09f49b28dc06806e9e88, type: 3}
+      propertyPath: sceneName
+      value: D-5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725746223053711842, guid: cc485007bd7f09f49b28dc06806e9e88, type: 3}
+      propertyPath: doorNumber
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3797048061349293013, guid: cc485007bd7f09f49b28dc06806e9e88, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -714,6 +730,14 @@ PrefabInstance:
     - target: {fileID: 2540697252410208655, guid: cc485007bd7f09f49b28dc06806e9e88, type: 3}
       propertyPath: m_Name
       value: WarpZone (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725746223053711842, guid: cc485007bd7f09f49b28dc06806e9e88, type: 3}
+      propertyPath: sceneName
+      value: D-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725746223053711842, guid: cc485007bd7f09f49b28dc06806e9e88, type: 3}
+      propertyPath: doorNumber
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3797048061349293013, guid: cc485007bd7f09f49b28dc06806e9e88, type: 3}
       propertyPath: m_RootOrder
@@ -1018,7 +1042,7 @@ GameObject:
   - component: {fileID: 1831883839}
   m_Layer: 8
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4645,7 +4669,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.25, y: 0.25, z: 0}
   m_MaxChunkCount: 16

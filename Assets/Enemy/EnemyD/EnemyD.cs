@@ -11,6 +11,7 @@ public class EnemyD : MonoBehaviour
 
     Vector3 defPos;
 
+    float dx;
     public float shootSpeed = 5.0f;
     public GameObject bulletPrefab;
 
@@ -40,43 +41,39 @@ public class EnemyD : MonoBehaviour
         transform.position = new Vector3(defPos.x, transform.position.y, transform.position.z);
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        dx = player.transform.position.x - transform.position.x;
         if (player != null)
         {
+            float dist = Vector2.Distance(transform.position, player.transform.position);
             if (isActive)
             {
                 //プレイヤーの方向を見る
-                float dx = player.transform.position.x - transform.position.x;
-
                 if (dx >= 0) transform.localScale = new Vector2(1, 1f);
                 else if (dx < 0) transform.localScale = new Vector2(-1, 1f);
             }
             else
             {
                 //距離チェック
-                float dist = Vector2.Distance(transform.position, player.transform.position);
                 if (dist < reactionDistance)
                 {
                     isActive = true;
                 }
             }
+            if(dist >= reactionDistance)
+            {
+                isActive = false;
+            }
+            
 
             GameObject bulletObj = GameObject.Find(bulletPrefab.name);
 
-            if (isActive)
+            if (isActive && player != null)
             {
-                float dx = player.transform.position.x - transform.position.x;
                 float dy = player.transform.position.y - transform.position.y;
 
-                if (Mathf.Abs(dy) < 8.0f && Mathf.Abs(dx) < reactionDistance-8)
+                if (Mathf.Abs(dy) < 8.0f && Mathf.Abs(dx) < reactionDistance)
                 {
-                    if (bulletObj == null)
-                    {
-                        Attack();//ほんとはアニメ
-                    }
-                    else
-                    {
-
-                    }
+                    animator.Play("EnemyDNormal");                 
                 }
             }
         }
@@ -88,24 +85,30 @@ public class EnemyD : MonoBehaviour
 
     public void Attack()
     {
-
-            float direction = transform.localScale.x;
-            if (direction >= 0)
+        GameObject bulletObj = GameObject.Find(bulletPrefab.name);
+        if (isActive)
+        {
+            if (bulletObj == null)
             {
-                GameObject newBulletObj = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                Vector3 v = new Vector3(direction, 0) * shootSpeed;
-                Rigidbody2D rbody = newBulletObj.GetComponent<Rigidbody2D>();
-                rbody.AddForce(v, ForceMode2D.Impulse);
-                newBulletObj.name = bulletPrefab.name;
+                float direction = transform.localScale.x;
+                if (direction >= 0)
+                {
+                    GameObject newBulletObj = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                    Vector3 v = new Vector3(direction, 0) * shootSpeed;
+                    Rigidbody2D rbody = newBulletObj.GetComponent<Rigidbody2D>();
+                    rbody.AddForce(v, ForceMode2D.Impulse);
+                    newBulletObj.name = bulletPrefab.name;
+                }
+                else
+                {
+                    GameObject newBulletObj = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 180));
+                    Vector3 v = new Vector3(direction, 0) * shootSpeed;
+                    Rigidbody2D rbody = newBulletObj.GetComponent<Rigidbody2D>();
+                    rbody.AddForce(v, ForceMode2D.Impulse);
+                    newBulletObj.name = bulletPrefab.name;
+                }
             }
-            else
-            {
-                GameObject newBulletObj = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 180));
-                Vector3 v = new Vector3(direction, 0) * shootSpeed;
-                Rigidbody2D rbody = newBulletObj.GetComponent<Rigidbody2D>();
-                rbody.AddForce(v, ForceMode2D.Impulse);
-                newBulletObj.name = bulletPrefab.name;
-            }
+        }
         
     }
 

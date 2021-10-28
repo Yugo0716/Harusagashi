@@ -6,15 +6,19 @@ public class Icicle : MonoBehaviour
 {//
     [SerializeField]
     public bool isDelete = false;  //óéâ∫å„Ç…è¡Ç∑ÉtÉâÉO
-
-
+    Rigidbody2D rbody;
+    Animator animator;
+    public string normalAnime = "IcicleNormal";
+    public string breakAnime = "IcicleBreak";
     // Start is called before the first frame update
     void Start()
     {
        // generator = GameObject.Find("IcicleGenerator");
         //ï®óùãììÆí‚é~
-        Rigidbody2D rbody = GetComponent<Rigidbody2D>();
+        rbody = GetComponent<Rigidbody2D>();
         rbody.bodyType = RigidbodyType2D.Static;
+        animator = GetComponent<Animator>();
+        animator.Play(normalAnime);
     }
 
     // Update is called once per frame
@@ -41,7 +45,23 @@ public class Icicle : MonoBehaviour
     {
         if (isDelete)
         {
-            Destroy(gameObject);
+            if(collision.gameObject.tag == "Ground")
+            {
+                StartCoroutine("IcicleBreak");
+            }
+            
+            //Destroy(gameObject);
         }
+    }
+    IEnumerator IcicleBreak()
+    {
+        animator.Play(breakAnime);
+
+        yield return new WaitForSeconds(0.2f);
+
+        GetComponent<PolygonCollider2D>().enabled = false;
+
+        yield return new WaitForSeconds(0.15f);
+        Destroy(gameObject);
     }
 }

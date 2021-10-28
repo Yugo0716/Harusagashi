@@ -203,7 +203,8 @@ public class PlayerController : MonoBehaviour
                     //ジャンプ
                     if (onGround && goJump)
                     {
-                        rbody.velocity = new Vector2(rbody.velocity.x, 0f);
+                    SoundManager.soundManager.SEPlay(SEType.Jump);
+                    rbody.velocity = new Vector2(rbody.velocity.x, 0f);
                         Vector2 jumpPw = new Vector2(0, jump);
 
                         rbody.AddForce(jumpPw, ForceMode2D.Impulse);
@@ -265,6 +266,10 @@ public class PlayerController : MonoBehaviour
         {
             rbody.velocity = new Vector2(rbody.velocity.x, -20);
         }
+        if(!onGround && goJump)
+        {
+            goJump = false;
+        }
 
         if (nowAnime != oldAnime)
         {
@@ -277,14 +282,26 @@ public class PlayerController : MonoBehaviour
     {
         goJump = true;
 
-        SoundManager.soundManager.SEPlay(SEType.Jump);
+        
     }
 
     bool IsCollision()
     {
-        Vector3 leftSP = transform.position - Vector3.right * 0.35f - Vector3.up * 0.06f;
-        Vector3 rightSP = transform.position + Vector3.right * 0.35f - Vector3.up * 0.06f;
-        Vector3 EP = transform.position - Vector3.up * 0.06f;
+        Vector3 leftSP;
+        Vector3 rightSP;
+        Vector3 EP;
+        if (transform.localScale.x > 0)
+        {
+            leftSP = transform.position - Vector3.right * 0.35f - Vector3.up * 0.08f;
+            rightSP = transform.position + Vector3.right * 0.20f - Vector3.up * 0.08f;
+            EP = transform.position - Vector3.up * 0.08f;
+        }
+        else
+        {
+            leftSP = transform.position - Vector3.right * 0.20f - Vector3.up * 0.08f;
+            rightSP = transform.position + Vector3.right * 0.35f - Vector3.up * 0.08f;
+            EP = transform.position - Vector3.up * 0.08f;
+        }
 
         Debug.DrawLine(leftSP, EP);
         Debug.DrawLine(rightSP, EP);
@@ -312,13 +329,20 @@ public class PlayerController : MonoBehaviour
     }
 
     //敵や即死、アイテムとの接触
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Damage" || collision.gameObject.tag == "EnemyBullet")
+        if(collision.gameObject.tag == "Thorn")
         {
              GetDamage(collision.gameObject);
+        }       
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Damage" || collision.gameObject.tag == "EnemyBullet")
+        {
+            GetDamage(collision.gameObject);
         }
-        else if(collision.gameObject.tag == "Dead")
+        else if (collision.gameObject.tag == "Dead")
         {
             hp = 0;
             GameOver();
@@ -337,9 +361,12 @@ public class PlayerController : MonoBehaviour
             if(hp > 0)
             {
                 rbody.velocity = new Vector2(0, 0);
-                //敵と反対方向にヒットバック
-                Vector3 v = (transform.position - enemy.transform.position).normalized;
-                rbody.AddForce(new Vector2(v.x * 4, v.y * 4), ForceMode2D.Impulse);
+                if (enemy.tag != "Thorn")
+                {
+                    //敵と反対方向にヒットバック
+                    Vector3 v = (transform.position - enemy.transform.position).normalized;
+                    rbody.AddForce(new Vector2(v.x * 4, v.y * 4), ForceMode2D.Impulse);
+                }
                 inDamage = true;
                 //敵をすり抜けるレイヤーにする
                 gameObject.layer = LayerMask.NameToLayer("Player_Damage");
@@ -360,7 +387,7 @@ public class PlayerController : MonoBehaviour
     {
         canControll = false;
         nowAnime = damageAnime;
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.3f);
         canControll = true;
         nowAnime = oldAnime;
     }

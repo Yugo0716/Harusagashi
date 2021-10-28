@@ -20,6 +20,7 @@ TagManager:
   - Fall
   - KeyGate
   - EnemyBullet
+  - Thorn
   layers:
   - Default
   - TransparentFX
@@ -42,7 +43,7 @@ TagManager:
   - BossStart
   - Needle
   - EnemyE
-  - 
+  - Oneway
   - 
   - 
   - 

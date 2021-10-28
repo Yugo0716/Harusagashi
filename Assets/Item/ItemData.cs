@@ -53,6 +53,7 @@ public class ItemData : MonoBehaviour
             }
             else if (type == ItemType.key)
             {
+                SoundManager.soundManager.SEPlay(SEType.Heal);
                 KeyKeeper keyKeeper = keykeeper.GetComponent<KeyKeeper>();
 
                 ItemKeeper.hasKeys += 1;

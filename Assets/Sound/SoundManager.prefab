@@ -53,7 +53,7 @@ MonoBehaviour:
   warpSE: {fileID: 8300000, guid: 186c11c35edf2e84f84513cd15465ba4, type: 3}
   reflectSE: {fileID: 8300000, guid: b2155e18276710946bae03809eca65fc, type: 3}
   healSE: {fileID: 8300000, guid: 2fe1fd024362dbb4db469be133b2187a, type: 3}
-  gameOverSE: {fileID: 8300000, guid: c1e03e726f476b44c933daf3abe6f7fd, type: 3}
+  gameOverSE: {fileID: 8300000, guid: 868b50ca957ca514cae541fae840e6c9, type: 3}
 --- !u!82 &7194941341656868760
 AudioSource:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0

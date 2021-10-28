@@ -37,7 +37,8 @@ public class EnemyC : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if(player != null)
         {
-            
+
+            float dist = Vector2.Distance(transform.position, player.transform.position);
             if (isActive)
             {
                 Vector3 playerPosDX = new Vector3(player.transform.position.x, player.transform.position.y + 2.0f, player.transform.position.z);
@@ -47,15 +48,25 @@ public class EnemyC : MonoBehaviour
                 float speedXTemp = Mathf.Clamp(rbody.velocity.x, -limitSpeed, limitSpeed);
                 float speedYTemp = Mathf.Clamp(rbody.velocity.y, -limitSpeed, limitSpeed);
                 rbody.velocity = new Vector3(speedXTemp, speedYTemp);
+
+                float dx = player.transform.position.x - transform.position.x;
+                if (dx >= 0) transform.localScale = new Vector2(1, 1f);
+                else if (dx < 0) transform.localScale = new Vector2(-1, 1f);
             }
             else
             {
-                float dist = Vector2.Distance(transform.position, player.transform.position);
+                
                 if (dist < reactionDistance)
                 {
                     isActive = true;
-                }
+                }             
             }
+            if(dist >= reactionDistance)
+            {
+                rbody.velocity = new Vector2(0, 0);
+                isActive = false;
+            }
+            
         }
         else if (isActive)
         {
@@ -63,6 +74,7 @@ public class EnemyC : MonoBehaviour
             rbody.velocity = Vector2.zero;
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet")

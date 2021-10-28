@@ -24,9 +24,27 @@ EditorBuildSettings:
     path: Assets/Scenes/FieldMap/A-5.unity
     guid: 525f2aaf5aec8b446b72fa1ff9719299
   - enabled: 1
+    path: Assets/Scenes/TempleMap/D-1.unity
+    guid: 6a76231d2960e0a48840d987a2de9b5a
+  - enabled: 1
+    path: Assets/Scenes/TempleMap/D-2.unity
+    guid: a093fa957a612bb40bce7c8b1e170577
+  - enabled: 1
+    path: Assets/Scenes/TempleMap/D-3.unity
+    guid: d52d6a78d443d464cb1c3748af70ed09
+  - enabled: 1
+    path: Assets/Scenes/TempleMap/D-4.unity
+    guid: d35a40d048c4ac24ba053ae93473c300
+  - enabled: 1
+    path: Assets/Scenes/TempleMap/D-5.unity
+    guid: ad542fbc18ce2854cb103f23b9aee08b
+  - enabled: 1
+    path: Assets/Scenes/TempleMap/D-6.unity
+    guid: 13f58fdc5da9b0d4ea12a050ee0b62d6
+  - enabled: 1
     path: Assets/Scenes/Others/BossStage.unity
     guid: 2fa8b5c44675fca49ae1a177c87f1db1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestMap/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
