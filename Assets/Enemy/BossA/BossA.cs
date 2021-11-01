@@ -31,15 +31,20 @@ public class BossA : MonoBehaviour
     public float hp = 3;
     public string deadAnime;
 
+
+
+    public GameObject dropItem;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        transform.localScale = new Vector2(-1, 1);
+        transform.localScale = new Vector2(-0.5f, 0.5f);
         nowState = BossStateA.Start;
         enemy1.SetActive(false);
         enemy2.SetActive(false);
+        GetComponent<Animator>().Play("BossIdle");
     }
 
     // Update is called once per frame
@@ -52,6 +57,7 @@ public class BossA : MonoBehaviour
                 break;
 
             case BossStateA.Battle:
+                GetComponent<Animator>().Play("BossNormal");
 
                 break;
         }
@@ -96,13 +102,13 @@ public class BossA : MonoBehaviour
                         if (dx >= 0)
                         {
                             rbody.velocity = new Vector2(-speed, rbody.velocity.y);
-                            transform.localScale = new Vector2(-2, 2);
+                            transform.localScale = new Vector2(-0.85f, 0.85f);
 
                         }
                         else
                         {
                             rbody.velocity = new Vector2(speed, rbody.velocity.y);
-                            transform.localScale = new Vector2(2, 2);
+                            transform.localScale = new Vector2(0.85f, 0.85f);
                         }
                     }
                     else if (!onGround && player != null)
@@ -130,8 +136,8 @@ public class BossA : MonoBehaviour
 
     bool IsCollision()
     {
-        Vector3 leftSP = transform.position - Vector3.right * 1.8f - Vector3.up * 0.06f;
-        Vector3 rightSP = transform.position + Vector3.right * 1.8f - Vector3.up * 0.06f;
+        Vector3 leftSP = transform.position - Vector3.right * 2.0f - Vector3.up * 0.06f;
+        Vector3 rightSP = transform.position + Vector3.right * 1.9f - Vector3.up * 0.06f;
         Vector3 EP = transform.position - Vector3.up * 0.06f;
 
         Debug.DrawLine(leftSP, EP);
@@ -155,11 +161,11 @@ public class BossA : MonoBehaviour
 
         yield return new WaitForSeconds(3.0f);
 
-        transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(-2, 2), Time.deltaTime * 8);
+        transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(-0.85f, 0.85f), Time.deltaTime * 8);
 
         yield return new WaitForSeconds(3.0f);
 
-        transform.localScale = new Vector2(-2, 2);
+        transform.localScale = new Vector2(-0.85f, 0.85f);
         gameObject.layer = LayerMask.NameToLayer("Enemy");
         yield return null;
         playerCnt.canControll = true;
@@ -185,6 +191,10 @@ public class BossA : MonoBehaviour
                 // animator.Play(deadAnime);
                 gameObject.layer = LayerMask.NameToLayer("Enemy_Dead");
                 rbody.velocity = new Vector2(0, 0);
+                if (dropItem != null)
+                {
+                    dropItem.SetActive(true);
+                }
                 Destroy(gameObject, 0.1f);
                 SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
             }

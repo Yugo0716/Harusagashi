@@ -54,6 +54,9 @@ public class InputText : MonoBehaviour
         }
         inputField.text = "";
         fieldObject.SetActive(false);
+        Destroy(gameObject);
         playerCnt.canControll = true;
+        SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
     }
+
 }

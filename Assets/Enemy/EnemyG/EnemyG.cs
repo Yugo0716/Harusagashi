@@ -50,12 +50,12 @@ public class EnemyG : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(defPos.x, transform.position.y, transform.position.z);
+        //transform.position = new Vector3(defPos.x, transform.position.y, transform.position.z);
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        dx = player.transform.position.x - transform.position.x;
         if (player != null)
         {
+            dx = player.transform.position.x - transform.position.x;
             if (isActive)
             {
                 //ÉvÉåÉCÉÑÅ[ÇÃï˚å¸Çå©ÇÈ

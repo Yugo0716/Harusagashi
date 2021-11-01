@@ -9,7 +9,7 @@ public class MovingMirror : MonoBehaviour
     public float times = 0.0f;
     public float weight = 0.0f;
 
-    public bool isCanMove = true;
+    public bool isCanMove = false;
     float perdx;
     float perdy;
     Vector3 defPos;

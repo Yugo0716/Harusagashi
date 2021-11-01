@@ -93,7 +93,7 @@ public class EnemyA : MonoBehaviour
             else
             {
                 direction = "right";
-                transform.localScale = new Vector2(-1, 1);
+                transform.localScale = new Vector2(1, 1);
             }
         }
     }

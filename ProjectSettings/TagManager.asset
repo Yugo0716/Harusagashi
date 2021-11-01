@@ -21,6 +21,10 @@ TagManager:
   - KeyGate
   - EnemyBullet
   - Thorn
+  - FallBreak
+  - Board
+  - BossA
+  - BossB
   layers:
   - Default
   - TransparentFX

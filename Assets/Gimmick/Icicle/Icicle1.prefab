@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 654821022016464197}
   - component: {fileID: 654821022016464196}
   - component: {fileID: 654821022016464194}
-  - component: {fileID: 4821218724845509729}
   - component: {fileID: 7752727045421301850}
+  - component: {fileID: 5200592859051293791}
   m_Layer: 12
   m_Name: Icicle1
   m_TagString: Damage
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654821022016464193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 4.99, z: 0}
+  m_LocalPosition: {x: 12, y: 23.15, z: 0}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -122,7 +122,26 @@ MonoBehaviour:
   isDelete: 1
   normalAnime: IcicleNormal
   breakAnime: IcicleBreak
---- !u!60 &4821218724845509729
+--- !u!95 &7752727045421301850
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654821022016464193}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 34c2c4fec39ee384e8fdc4ad05e126f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &5200592859051293791
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,22 +188,3 @@ PolygonCollider2D:
       - {x: 0.14, y: -1.13}
       - {x: 0.35, y: -0.75}
       - {x: 0.57, y: -0.37}
---- !u!95 &7752727045421301850
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654821022016464193}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 34c2c4fec39ee384e8fdc4ad05e126f7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

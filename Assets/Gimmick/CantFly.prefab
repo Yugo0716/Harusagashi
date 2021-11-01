@@ -139,4 +139,4 @@ MonoBehaviour:
   moveY: 0
   times: 0
   weight: 0
-  isCanMove: 1
+  isCanMove: 0

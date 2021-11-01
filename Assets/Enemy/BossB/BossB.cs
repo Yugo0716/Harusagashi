@@ -12,7 +12,7 @@ enum BossStateB
 public class BossB : MonoBehaviour
 {
     private float angle;
-    private float speed = 1.2f;
+    private float speed;
     public float battleStartPosX;
     float fadeTime = 0;
 
@@ -23,18 +23,24 @@ public class BossB : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public float shootSpeed = 5.0f;
 
-    bool inAttack = false;
+    //bool inAttack = false;
 
     //HPŠÖ˜A
     public int arrangeId = 0;
     public float hp = 10;
     public string deadAnime;
 
+    public GameObject dropItem;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        if (dropItem != null)
+        {
+            dropItem.SetActive(false);
+        }
         GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         nowState = BossStateB.Start;
     }
@@ -46,6 +52,7 @@ public class BossB : MonoBehaviour
         switch (nowState)
         {
             case BossStateB.Start:
+                GetComponent<Animator>().Play("BossIdle");
                 rbody.velocity = new Vector2(0, 0);
                 if (player.transform.position.x >= battleStartPosX)
                 {
@@ -54,29 +61,69 @@ public class BossB : MonoBehaviour
                 break;
 
             case BossStateB.Battle:
+                if (player != null)
+                {
+                    float dx = player.transform.position.x - transform.position.x;
+                    float dy = player.transform.position.y - transform.position.y;
+                    if (dx >= 0)
+                    {
+                        transform.localScale = new Vector2(1, 1);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector2(-1, 1);
+                    }
+                }
                 angle += Time.deltaTime * speed;
                 transform.position = new Vector3(Mathf.Sin(angle) * 10, Mathf.Sin(angle * 2) * 2.0f + 4);
 
                 if (hp > 0)
-                {             
+                {
+                    if (hp >= 10)
+                    {
+                        speed = 1.2f;
+                        GetComponent<Animator>().Play("BossAttack");
+                    }
+                    else if (hp >= 5)
+                    {
+                        speed = 1.8f;
+                        GetComponent<Animator>().Play("BossAttack2");
+                    }
+                    else
+                    {
+                        speed = 2.4f;
+                        GetComponent<Animator>().Play("BossAttack3");
+                    }
+
                     if (player != null)
                     {
                         Vector3 playerPos = player.transform.position;
-                        if (inAttack == false)
+                        //if (inAttack == false)
                         {
-                            inAttack = true;
-                            GetComponent<Animator>().Play("BossAttack");
+                          //  inAttack = true;
+                            //GetComponent<Animator>().Play("BossAttack");
                         }
-                        else
+                        //else
                         {
-                            inAttack = false;
-                            GetComponent<Animator>().Play("BossIdle");
+                            //inAttack = false;
+                            //GetComponent<Animator>().Play("BossIdle");
                         }
                     }
                     else
                     {
-                        inAttack = false;
+                        //inAttack = false;
                         GetComponent<Animator>().Play("BossIdle");
+                    }
+                }
+                else
+                {
+                    gameObject.layer = LayerMask.NameToLayer("Enemy_Dead");
+                    rbody.velocity = new Vector2(0, 0);
+                    Destroy(gameObject, 0.1f);
+                    SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
+                    if (dropItem != null)
+                    {
+                        dropItem.SetActive(true);
                     }
                 }
                 break;
@@ -113,8 +160,9 @@ public class BossB : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if(player != null)
         {
-            float dx = player.transform.position.x - gate.transform.position.x;
-            float dy = player.transform.position.y - gate.transform.position.y;
+            float dx = player.transform.position.x - transform.position.x;
+            float dy = player.transform.position.y - transform.position.y;
+
             float rad = Mathf.Atan2(dy, dx);
             float angle = rad * Mathf.Rad2Deg;
             GameObject bullet = Instantiate(bulletPrefab, gate.transform.position, Quaternion.Euler(0, 0, angle));

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class NeedsKeeper : MonoBehaviour
 {//
     public static string number;
-    public GameObject[] needs = new GameObject[9];  //アイテム画像
+    public GameObject[] needs = new GameObject[7];  //アイテム画像
 
-    public static int[] itemNumber = new int[9];  //アイテムに付けた番号、needs[i]に対応
-    public static int[] figure = new int[9];
+    public static int[] itemNumber = new int[7];  //アイテムに付けた番号、needs[i]に対応
+    public static int[] figure = new int[7];
 
     // Start is called before the first frame update
     void Start()

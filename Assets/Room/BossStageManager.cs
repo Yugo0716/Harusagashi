@@ -9,11 +9,16 @@ public class BossStageManager : MonoBehaviour
     public GameObject exit;
     public GameObject enemy1, enemy2;
 
+    public GameObject needsPanel;
+
     // Start is called before the first frame update
     void Start()
     {
         PlayerPrefs.SetInt("PlayerHP", 5);
         Exit exitCnt = exit.GetComponent<Exit>();
+
+        needsPanel = GameObject.Find("NeedsPanel");
+        needsPanel.SetActive(false);
     }
 
     // Update is called once per frame

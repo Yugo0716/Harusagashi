@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/FieldMap/A-5.unity
     guid: 525f2aaf5aec8b446b72fa1ff9719299
   - enabled: 1
+    path: Assets/Scenes/SnowMountain/B-1.unity
+    guid: 413ba27f3d20a0443a60f1d23150e9f7
+  - enabled: 1
+    path: Assets/Scenes/SnowMountain/B-2.unity
+    guid: acb1d10ea24cd7849a443507f2752b00
+  - enabled: 1
     path: Assets/Scenes/TempleMap/D-1.unity
     guid: 6a76231d2960e0a48840d987a2de9b5a
   - enabled: 1
@@ -42,8 +48,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TempleMap/D-6.unity
     guid: 13f58fdc5da9b0d4ea12a050ee0b62d6
   - enabled: 1
+    path: Assets/Scenes/Underground/E-1.unity
+    guid: 8dfbc5a5471d26c48b176c6f4692aeee
+  - enabled: 1
     path: Assets/Scenes/Others/BossStage.unity
     guid: 2fa8b5c44675fca49ae1a177c87f1db1
+  - enabled: 1
+    path: Assets/Scenes/Others/BossStage2.unity
+    guid: 1ae4a91564a98ac4399521267a3bb217
   - enabled: 0
     path: Assets/Scenes/TestMap/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729

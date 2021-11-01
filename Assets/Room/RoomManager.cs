@@ -26,6 +26,29 @@ public class RoomManager : MonoBehaviour
                 break;
             }
         }
+
+        string scenename = PlayerPrefs.GetString("LastScene");
+
+        if(scenename == "A-1" || scenename == "A-2" || scenename == "A-3" || scenename == "A-4" || scenename == "A-5")
+        {
+            SoundManager.soundManager.PlayBgm(BGMType.Field);
+        }
+        else if (scenename == "B-1" || scenename == "B-2")
+        {
+            SoundManager.soundManager.PlayBgm(BGMType.SnowMountain);
+        }
+        else if (scenename == "D-1" || scenename == "D-2" || scenename == "D-3" || scenename == "D-4" || scenename == "D-5" || scenename == "D-6")
+        {
+            SoundManager.soundManager.PlayBgm(BGMType.Temple);
+        }
+        else if (scenename == "E-1")
+        {
+            SoundManager.soundManager.PlayBgm(BGMType.Underground);
+        }
+        else if(scenename == "Title")
+        {
+            SoundManager.soundManager.PlayBgm(BGMType.Title);
+        }
     }
 
     // Update is called once per frame

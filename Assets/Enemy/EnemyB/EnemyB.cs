@@ -39,9 +39,10 @@ public class EnemyB : MonoBehaviour
         transform.position = new Vector3(defPos.x, transform.position.y, transform.position.z);
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        dx = player.transform.position.x - transform.position.x;
+        
         if (player != null)
         {
+            dx = player.transform.position.x - transform.position.x;
             float dist = Vector2.Distance(transform.position, player.transform.position);
             if (isActive)
             {
@@ -101,7 +102,7 @@ public class EnemyB : MonoBehaviour
             GameObject bulletObj;
             if (direction >= 0)
             {
-                bulletObj = Instantiate(bulletPrefab, new Vector2(transform.position.x -0.6f, transform.position.y), Quaternion.identity);
+                bulletObj = Instantiate(bulletPrefab, new Vector2(transform.position.x +0.6f, transform.position.y), Quaternion.identity);
             }
             else
             {

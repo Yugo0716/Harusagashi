@@ -32,7 +32,7 @@ public class FallBlock : MonoBehaviour
         {
              reAppearCount += Time.deltaTime;
 
-            if (reAppearCount >= 4.0f)
+            if (reAppearCount >= 2.0f)
             {
                 fall = false;
                 afterFall = false;
@@ -48,12 +48,13 @@ public class FallBlock : MonoBehaviour
         {      
             collision.transform.SetParent(transform);
         }
-        if(collision.gameObject.tag == "Dead")
+        if(collision.gameObject.tag == "Dead" || collision.gameObject.tag == "FallBreak")
         {
+            Debug.Log("a");
             AfterFall();
             reAppearCount += Time.deltaTime;
 
-            if (reAppearCount >= 3.0f)
+            if (reAppearCount >= 2.0f)
             {
                 fall = false;
                 transform.position = defPos;

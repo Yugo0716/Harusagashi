@@ -18,9 +18,10 @@ public class ItemKeeper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hasNeeds == 9)
+        if(hasNeeds == 7)
         {
             //ƒNƒŠƒA‚Ìˆ—
+            Debug.Log("ccc");
         }
         if (Input.GetKeyDown(KeyCode.C))
         {

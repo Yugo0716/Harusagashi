@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 15
   limitSpeed: 3
-  reactionDistance: 10
+  reactionDistance: 12
   arrangeId: 0
   hp: 3
   deadAnime: 

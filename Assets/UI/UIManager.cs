@@ -18,7 +18,8 @@ public class UIManager : MonoBehaviour
     public GameObject mainImage;
     public GameObject continueButton;
     public GameObject endButton;
-    public GameObject panel;
+    public GameObject ButtonPanel;
+    public GameObject NeedsPanel;
     public Sprite gameOverSpr;
 
 
@@ -29,7 +30,7 @@ public class UIManager : MonoBehaviour
     {
         UpdateHP();
         InactiveImage();  //Invokeにするとゲームスタートの字幕
-        panel.SetActive(false);
+        ButtonPanel.SetActive(false);
         
     }
 
@@ -52,11 +53,7 @@ public class UIManager : MonoBehaviour
                     hp = PlayerController.hp;
                     if (hp <= 0)
                     {
-                        Destroy(hpImage);
-                        panel.SetActive(true);
-                        mainImage.SetActive(true);
-                        mainImage.GetComponent<Image>().sprite = gameOverSpr;
-                        PlayerController.gameState = "gameend";
+                        StartCoroutine("GameOvetEnsyutu");                      
                     }
                     else if (hp == 1) hpImage.GetComponent<Image>().sprite = life1Image;
                     else if (hp == 2) hpImage.GetComponent<Image>().sprite = life2Image;
@@ -85,12 +82,25 @@ public class UIManager : MonoBehaviour
 
     public void EndButtonClicked()
     {
-        SceneManager.LoadScene("Title");
+        FadeManager.Instance.LoadScene("Title", 0.5f);
     }
 
     //画像非表示
     void InactiveImage()
     {
         mainImage.SetActive(false);
+    }
+
+    IEnumerator GameOvetEnsyutu()
+    {
+        Destroy(hpImage);
+        Destroy(NeedsPanel);
+
+        yield return new WaitForSeconds(2.0f);
+
+        ButtonPanel.SetActive(true);
+        mainImage.SetActive(true);
+        mainImage.GetComponent<Image>().sprite = gameOverSpr;
+        PlayerController.gameState = "gameend";
     }
 }

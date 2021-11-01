@@ -44,6 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18ce8639123ad24b9171332614cc71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TitleBGM: {fileID: 8300000, guid: 8b322002e67eece42a22521cbf227345, type: 3}
+  FieldBGM: {fileID: 8300000, guid: 5f9de0cc7f597964ca93d09d6669dd85, type: 3}
+  SnowMountain: {fileID: 8300000, guid: 15583aab6df50e643afac3214f24cb70, type: 3}
+  TempleBGM: {fileID: 8300000, guid: 59c455395737f164c84481bbda065096, type: 3}
+  UnderGroundBGM: {fileID: 8300000, guid: a496b7f37d3cf0442afb0c66011f2d2a, type: 3}
+  BossBGM: {fileID: 8300000, guid: 8d13f14433da42a4aa29ef4c91230296, type: 3}
+  EndingBGM: {fileID: 8300000, guid: c941e3dea996a3d4b80c14a9508cb64d, type: 3}
   selectSE: {fileID: 8300000, guid: 9c872c2121344af44b8389c8ab901353, type: 3}
   jumpSE: {fileID: 8300000, guid: 0d2f5476dba422541b2b5f50bf1ea101, type: 3}
   attackSE: {fileID: 8300000, guid: 767a4475c87959e4287f0bca52ebaa18, type: 3}
@@ -51,6 +58,7 @@ MonoBehaviour:
   itemSE: {fileID: 8300000, guid: a720bdd1fcf67214cadfe1913e63cdf1, type: 3}
   hitSE: {fileID: 8300000, guid: 2995d31fb4dc32a4ebbe330b55423ba2, type: 3}
   warpSE: {fileID: 8300000, guid: 186c11c35edf2e84f84513cd15465ba4, type: 3}
+  switchOnSE: {fileID: 8300000, guid: 5c4b2dc143c2c5e4a8fc7547097bbcc7, type: 3}
   reflectSE: {fileID: 8300000, guid: b2155e18276710946bae03809eca65fc, type: 3}
   healSE: {fileID: 8300000, guid: 2fe1fd024362dbb4db469be133b2187a, type: 3}
   gameOverSE: {fileID: 8300000, guid: 868b50ca957ca514cae541fae840e6c9, type: 3}
@@ -66,7 +74,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.398
   m_Pitch: 1
   Loop: 1
   Mute: 0

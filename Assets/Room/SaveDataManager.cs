@@ -42,11 +42,20 @@ public class SaveDataManager : MonoBehaviour
                             exit.open = true;
                         }
                     }
-                    //DamageÇ…Ç¬Ç¢ÇƒÅiéÂÇ…EnemyÅj
-                    else if (objTag == "Damage")
+                    //BossA
+                    else if (objTag == "BossA")
                     {
-                        EnemyHP enemy = obj.GetComponent<EnemyHP>();
-                        if(enemy.arrangeId == savedata.arrangeId)
+                        BossA bossA = obj.GetComponent<BossA>();
+                        if(bossA.arrangeId == savedata.arrangeId)
+                        {
+                            Destroy(obj);
+                        }
+                    }
+                    //BossB
+                    else if (objTag == "BossB")
+                    {
+                        BossB bossB = obj.GetComponent<BossB>();
+                        if (bossB.arrangeId == savedata.arrangeId)
                         {
                             Destroy(obj);
                         }
@@ -93,6 +102,15 @@ public class SaveDataManager : MonoBehaviour
                     {
                         KeyGate keyGate = obj.GetComponent<KeyGate>();
                         if(keyGate.arrangeId == savedata.arrangeId)
+                        {
+                            Destroy(obj);
+                        }
+                    }
+                    //BoardÇ…Ç¬Ç¢Çƒ
+                    else if(obj.tag == "Board")
+                    {
+                        InputText inputText = obj.GetComponent<InputText>();
+                        if(inputText.arrangeId == savedata.arrangeId)
                         {
                             Destroy(obj);
                         }

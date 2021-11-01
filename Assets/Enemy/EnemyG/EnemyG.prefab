@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4386092728837737628}
   - component: {fileID: 4386092728837737631}
   - component: {fileID: 4386092728837737630}
-  - component: {fileID: 4386092728837737632}
   - component: {fileID: 3010739018408189208}
   - component: {fileID: 3010739018408189213}
   m_Layer: 12
@@ -108,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &4386092728837737630
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135,22 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &4386092728837737632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4386092728837737635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 658d943ba9f3c6c44a93420caa8c3c9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrangeId: 0
-  hp: 3
-  deadAnime: 
-  dropItem: {fileID: 0}
 --- !u!95 &3010739018408189208
 Animator:
   serializedVersion: 3

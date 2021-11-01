@@ -5,7 +5,14 @@ using UnityEngine;
 //BGMタイプ
 public enum BGMType
 {
-    None
+    None,
+    Title,
+    Field,
+    SnowMountain,
+    Temple,
+    Underground,
+    Boss,
+    Ending
 }
 
 //SEタイプ
@@ -21,10 +28,20 @@ public enum SEType
     Attack,
     Hit,
     Item,
+    SwitchOn
 }
 
 public class SoundManager : MonoBehaviour
 {
+    //BGM
+    public AudioClip TitleBGM;
+    public AudioClip FieldBGM;
+    public AudioClip SnowMountain;
+    public AudioClip TempleBGM;
+    public AudioClip UnderGroundBGM;
+    public AudioClip BossBGM;
+    public AudioClip EndingBGM;
+
     //SE
     public AudioClip selectSE;
     public AudioClip jumpSE;
@@ -33,7 +50,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip itemSE;
     public AudioClip hitSE;
     public AudioClip warpSE;
-    //public AudioClip switchOnSE;
+    public AudioClip switchOnSE;
     public AudioClip reflectSE;
     public AudioClip healSE;
     public AudioClip gameOverSE;
@@ -72,7 +89,40 @@ public class SoundManager : MonoBehaviour
     //BGM設定
     public void PlayBgm(BGMType type)
     {
-
+        if(type != playingBGM)
+        {
+            playingBGM = type;
+            AudioSource audio = GetComponent<AudioSource>();
+            if(type == BGMType.Title)
+            {
+                audio.clip = TitleBGM;
+            }
+            else if (type == BGMType.Field)
+            {
+                audio.clip = FieldBGM;
+            }
+            else if (type == BGMType.SnowMountain)
+            {
+                audio.clip = SnowMountain;
+            }
+            else if (type == BGMType.Temple)
+            {
+                audio.clip = TempleBGM;
+            }
+            else if (type == BGMType.Underground)
+            {
+                audio.clip = UnderGroundBGM;
+            }
+            else if (type == BGMType.Boss)
+            {
+                audio.clip = BossBGM;
+            }
+            else if (type == BGMType.Ending)
+            {
+                audio.clip = EndingBGM;
+            }
+            audio.Play();
+        }
     }
 
     //BGM停止
@@ -124,6 +174,10 @@ public class SoundManager : MonoBehaviour
         else if (type == SEType.Item)
         {
             GetComponent<AudioSource>().PlayOneShot(itemSE);
+        }
+        else if (type == SEType.SwitchOn)
+        {
+            GetComponent<AudioSource>().PlayOneShot(switchOnSE);
         }
     }
 }

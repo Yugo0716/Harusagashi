@@ -7,6 +7,7 @@ public class Exit : MonoBehaviour
     public string sceneName = "";  //移動先のシーン
     public int doorNumber = 0;  //ドア番号
     public bool open = true;
+    public bool touch = false;
 
     public int arrangeId = 0;
 
@@ -28,13 +29,28 @@ public class Exit : MonoBehaviour
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             PlayerController playerCnt = player.GetComponent<PlayerController>();
-            if (playerCnt.onGround == true && playerCnt.canFly == false && open)
+            if (touch == false)
             {
-                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+                if (playerCnt.onGround == true && playerCnt.canFly == false && open)
+                {
+                    float axisV = Input.GetAxisRaw("Vertical");
+                    if (axisV > 0)
                     {
                         SoundManager.soundManager.SEPlay(SEType.Warp);
                         RoomManager.ChangeScene(sceneName, doorNumber);
                     }
+                }
+            }         
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if(touch == true)
+            {
+                SoundManager.soundManager.SEPlay(SEType.Warp);
+                RoomManager.ChangeScene(sceneName, doorNumber);
             }
         }
     }

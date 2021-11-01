@@ -30,7 +30,7 @@ public class Oneway : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Invoke("Kaijo", 0.03f);
+            Invoke("Kaijo", 0.02f);
         }
     }
     void Kaijo()

@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public string deadAnime = "PlayerDead";
     string nowAnime = "";
     string oldAnime = "";
+    
 
 
     // Start is called before the first frame update
@@ -77,7 +78,7 @@ public class PlayerController : MonoBehaviour
             #region//îÚçsÇ∆ÇÃêÿÇËë÷Ç¶
             if (canSelectFly)
             {
-                if (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.LeftShift))
+                if (Input.GetButtonDown("Fly"))
                 {
                     if (canFly == true) canFly = false;
                     else canFly = true;
@@ -338,12 +339,13 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Damage" || collision.gameObject.tag == "EnemyBullet")
+        if (collision.gameObject.tag == "Damage" || collision.gameObject.tag == "EnemyBullet" || collision.gameObject.tag == "BossA" || collision.gameObject.tag == "BossB")
         {
             GetDamage(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Dead")
         {
+            SoundManager.soundManager.SEPlay(SEType.Damage);
             hp = 0;
             GameOver();
         }
@@ -386,7 +388,11 @@ public class PlayerController : MonoBehaviour
     IEnumerator CanControllCoroutine()
     {
         canControll = false;
-        nowAnime = damageAnime;
+        if (canFly)
+        {
+            nowAnime = stopAnime;
+        }
+        
         yield return new WaitForSeconds(0.3f);
         canControll = true;
         nowAnime = oldAnime;
@@ -401,13 +407,27 @@ public class PlayerController : MonoBehaviour
 
     void GameOver()
     {
+        canControll = false;
+        StartCoroutine("GameOverEnsyutu");
         gameState = "gameover";
+               
+        Destroy(gameObject, 4.0f);
+    }
+
+    IEnumerator GameOverEnsyutu()
+    {
+        SoundManager.soundManager.StopBGM();
         GetComponent<CapsuleCollider2D>().enabled = false;
         rbody.velocity = new Vector2(0, 0);
-        rbody.gravityScale = 1;
-        rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+        rbody.gravityScale = 0;
         animator.Play(deadAnime);
+
+        yield return new WaitForSeconds(0.5f);
+
         SoundManager.soundManager.SEPlay(SEType.GameOver);
-        Destroy(gameObject, 1.0f);
+        rbody.gravityScale = 2;
+        rbody.AddForce(new Vector2(0, 15), ForceMode2D.Impulse);
+        
+        yield return null;
     }
 }

@@ -22,7 +22,7 @@ public class CameraManager : MonoBehaviour
     void Update()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if(player != null)
+        if(player != null && PlayerController.hp > 0)
         {
             float x = player.transform.position.x;
             float y = player.transform.position.y + 3;
